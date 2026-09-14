@@ -52,8 +52,8 @@ your SSH client has a graphical front-end, such as PuTTY or MobaXterm, you will
 set these arguments before clicking "connect." From the terminal, you'll write
 something like `ssh username@hostname`, where the argument is just like an
 email address: the "@" symbol is used to separate the personal ID from the
-address of the remote machine. In this lesson, yourUsername represents
-the `username` on the remote system, and cluster.hpc-carpentry.org represents
+address of the remote machine. In this lesson, abc123 represents
+the `username` on the remote system, and plato.usask.ca represents
 the cluster's login address (`hostname`), i.e., how to find the cluster on the
 internet.
 
@@ -61,7 +61,7 @@ When logging in to a laptop, tablet, or other personal device, a username,
 password, or pattern are normally required to prevent unauthorized access. In
 these situations, the likelihood of somebody else intercepting your password is
 low, since logging your keystrokes requires a malicious exploit or physical
-access. For systems like `login1` running an SSH server, anybody
+access. For systems like `platolgn001` running an SSH server, anybody
 on the network can log in, or try to. Since usernames are often public or easy
 to guess, your password is often the weakest link in the security chain. Many
 clusters therefore forbid password-based login, requiring instead that you
@@ -307,18 +307,20 @@ See the [PuTTY documentation][putty-agent].
 
 ### Transfer Your Public Key
 
+```bash
+[you@laptop:~]$ scp ~/.ssh/id_ed25519.pub abc123@plato.usask.ca:~/
+```
 
 
-Visit [https://mokey.cluster.hpc-carpentry.org](https://mokey.cluster.hpc-carpentry.org) to upload your SSH public key. (Remember, it's the one ending in `.pub`!)
 
 ## Log In to the Cluster
 
 Go ahead and open your terminal or graphical SSH client, then log in to the
-cluster. Replace `yourUsername` with your username or the one
+cluster. Replace `abc123` with your username or the one
 supplied by the instructors.
 
 ```bash
-[you@laptop:~]$ ssh yourUsername@cluster.hpc-carpentry.org
+[you@laptop:~]$ ssh abc123@plato.usask.ca
 ```
 
 You may be asked for your password. Watch out: the characters you type after
@@ -338,7 +340,7 @@ on though so we will adopt the following convention:
 
 - `[you@laptop:~]$` when the command is to be entered on a terminal
   connected to your local computer
-- `[yourUsername@login1 ~]$` when the command is to be entered on a
+- `[abc123@platolgn001 ~]` when the command is to be entered on a
   terminal connected to the remote system
 - `$` when it really doesn't matter which system the terminal is connected to.
 
@@ -352,28 +354,28 @@ computer we are logged onto can be checked with the `hostname` command. (You
 may also notice that the current hostname is also part of our prompt!)
 
 ```bash
-[yourUsername@login1 ~]$ hostname
+[abc123@platolgn001 ~] hostname
 ```
 
 ```output
-login1
+platolgn001
 ```
 
 So, we're definitely on the remote machine. Next, let's find out where we are
 by running `pwd` to **p**rint the **w**orking **d**irectory.
 
 ```bash
-[yourUsername@login1 ~]$ pwd
+[abc123@platolgn001 ~] pwd
 ```
 
 ```output
-/home/yourUsername
+/home/abc123
 ```
 
 Great, we know where we are! Let's see what's in our current directory:
 
 ```bash
-[yourUsername@login1 ~]$ ls
+[abc123@platolgn001 ~] ls
 ```
 
 ```output
@@ -386,7 +388,7 @@ other filesystems. If they did not, your home directory may appear empty. To
 double-check, include hidden files in your directory listing:
 
 ```bash
-[yourUsername@login1 ~]$ ls -a
+[abc123@platolgn001 ~] ls -a
 ```
 
 ```output
@@ -420,14 +422,14 @@ If the `.ssh` folder was not listed above, then it does not yet
 exist: create it.
 
 ```bash
-[yourUsername@login1 ~]$ mkdir ~/.ssh
+[abc123@platolgn001 ~] mkdir ~/.ssh
 ```
 
 Now, use `cat` to print your public key, but redirect the output, appending it
 to the `authorized_keys` file:
 
 ```bash
-[yourUsername@login1 ~]$ cat ~/id_ed25519.pub >> ~/.ssh/authorized_keys
+[abc123@platolgn001 ~] cat ~/id_ed25519.pub >> ~/.ssh/authorized_keys
 ```
 
 That's all! Disconnect, then try to log back into the remote: if your key and
@@ -435,11 +437,11 @@ agent have been configured correctly, you should not be prompted for the
 password for your SSH key.
 
 ```bash
-[yourUsername@login1 ~]$ logout
+[abc123@platolgn001 ~] logout
 ```
 
 ```bash
-[you@laptop:~]$ ssh yourUsername@cluster.hpc-carpentry.org
+[you@laptop:~]$ ssh abc123@plato.usask.ca
 ```
 
 [gh-ssh]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh

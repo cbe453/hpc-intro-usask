@@ -99,17 +99,10 @@ Using `nano`, create a script called
 `job_single_amdahl.sh` containing the following:
 
 
-```bash
-#!/bin/bash
-#SBATCH --partition=cpubase_bycore_b1
-#SBATCH --job-name=amdahl_defaults
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --time=00:05:00
-
-echo "Run the Amdahl executable with default arguments."
-amdahl
-echo "Finished Amdahl."
+``` error
+Error:
+! Snippet not found: array/job_single_amdahl.Rmd
+Paths checked: /__w/hpc-intro-usask/hpc-intro-usask/episodes/files/customization/Plato_slurm/snippets/array/job_single_amdahl.Rmd
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -138,7 +131,7 @@ variables.
 The relevant array directive has this format:
 
 ```bash
-#SBATCH --array=<array-spec>
+ =<array-spec>
 ```
 
 The `<array-spec>` above is a place-holder for specifying the
@@ -186,22 +179,10 @@ and to direct the output of each array element to a separate file.
 :::: solution
 
 
-```bash
-#!/bin/bash
-#SBATCH --partition=cpubase_bycore_b1
-#SBATCH --job-name=amdahl-array
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --array=1-4
-#SBATCH --time=00:05:00
-#SBATCH --output=amdahl-%A-%a
-
-# Run the Amdahl executable several times independently.
-
-echo "Starting the Amdahl array script."
-amdahl 
-echo "Finished Amdahl array script."
-
+``` error
+Error:
+! Snippet not found: array/job_array_amdahl.Rmd
+Paths checked: /__w/hpc-intro-usask/hpc-intro-usask/episodes/files/customization/Plato_slurm/snippets/array/job_array_amdahl.Rmd
 ```
 
 ::::

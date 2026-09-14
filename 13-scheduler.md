@@ -66,7 +66,7 @@ manner. Our shell script will have three parts:
   name of the machine the script is run on.
 
 ```bash
-[yourUsername@login1 ~]$ nano example-job.sh
+[abc123@platolgn001 ~] nano example-job.sh
 ```
 
 ```bash
@@ -87,11 +87,11 @@ Run the script. Does it execute on the cluster or just our login node?
 ## Solution
 
 ```bash
-[yourUsername@login1 ~]$ bash example-job.sh
+[abc123@platolgn001 ~] bash example-job.sh
 ```
 
 ```output
-This script is running on login1
+This script is running on platolgn001
 ```
 
 :::::::::::::::::::::::::
@@ -109,22 +109,24 @@ a compute node which the queuing system has identified as being
 available to perform the work.
 
 ```bash
-[yourUsername@login1 ~]$ sbatch  example-job.sh
+[abc123@platolgn001 ~] sbatch --account=hpc_p_training example-job.sh
 ```
 
 
-```output
-Submitted batch job 7
+``` error
+Error:
+! Snippet not found: scheduler/basic-job-script.Rmd
+Paths checked: /__w/hpc-intro-usask/hpc-intro-usask/episodes/files/customization/Plato_slurm/snippets/scheduler/basic-job-script.Rmd
 ```
 
 And that's all we need to do to submit a job. Our work is done -- now the
 scheduler takes over and tries to run the job for us. While the job is waiting
 to run, it goes into a list of jobs called the *queue*. To check on our job's
 status, we check the queue using the command
-`squeue -u yourUsername`.
+` `.
 
 ```bash
-[yourUsername@login1 ~]$ squeue -u yourUsername
+[abc123@platolgn001 ~]  
 ```
 
 ```output
@@ -141,7 +143,7 @@ or `RUNNING` state. Sometimes our jobs might need to wait in a queue
 ## Where's the Output?
 
 On the login node, this script printed output to the terminal -- but
-now, when `squeue` shows the job has finished,
+now, when `` shows the job has finished,
 nothing was printed to the terminal.
 
 Cluster job output is typically redirected to a file in the directory you
@@ -160,24 +162,24 @@ resources we must customize our job script.
 Comments in UNIX shell scripts (denoted by `#`) are typically ignored, but
 there are exceptions. For instance the special `#!` comment at the beginning of
 scripts specifies what program should be used to run it (you'll typically see
-`#!/bin/bash`). Schedulers like Slurm also
+`#!/usr/bin/env bash`). Schedulers like Slurm also
 have a special comment used to denote special scheduler-specific options.
 Though these comments differ from scheduler to scheduler,
-Slurm's special comment is `#SBATCH`. Anything
-following the `#SBATCH` comment is interpreted as an
+Slurm's special comment is ``. Anything
+following the `` comment is interpreted as an
 instruction to the scheduler.
 
 Let's illustrate this by example. By default, a job's name is the name of the
-script, but the `--job-name` option can be used to change the
+script, but the `` option can be used to change the
 name of a job. Add an option to the script:
 
 ```bash
-[yourUsername@login1 ~]$ cat example-job.sh
+[abc123@platolgn001 ~] cat example-job.sh
 ```
 
 ```bash
 #!/bin/bash
-#SBATCH --job-name hello-world
+  hello-world
 
 echo -n "This script is running on "
 hostname
@@ -186,8 +188,8 @@ hostname
 Submit the job and monitor its status:
 
 ```bash
-[yourUsername@login1 ~]$ sbatch  example-job.sh
-[yourUsername@login1 ~]$ squeue -u yourUsername
+[abc123@platolgn001 ~] sbatch --account=hpc_p_training example-job.sh
+[abc123@platolgn001 ~]  
 ```
 
 ```output
@@ -267,12 +269,12 @@ for it on the cluster.
 ## Solution
 
 ```bash
-[yourUsername@login1 ~]$ cat example-job.sh
+[abc123@platolgn001 ~] cat example-job.sh
 ```
 
 ```bash
 #!/bin/bash
-#SBATCH --time 00:01 # timeout in HH:MM
+  00:01 # timeout in HH:MM
 
 echo -n "This script is running on "
 sleep 20 # time in seconds
@@ -280,7 +282,7 @@ hostname
 ```
 
 ```bash
-[yourUsername@login1 ~]$ sbatch  example-job.sh
+[abc123@platolgn001 ~] sbatch --account=hpc_p_training example-job.sh
 ```
 
 Why are the Slurm runtime and `sleep` time not identical?
@@ -296,13 +298,13 @@ killed. Let's use wall time as an example. We will request 1 minute of
 wall time, and attempt to run a job for two minutes.
 
 ```bash
-[yourUsername@login1 ~]$ cat example-job.sh
+[abc123@platolgn001 ~] cat example-job.sh
 ```
 
 ```bash
 #!/bin/bash
-#SBATCH --job-name long_job
-#SBATCH --time 00:01 # timeout in HH:MM
+  long_job
+  00:01 # timeout in HH:MM
 
 echo "This script is running on ... "
 sleep 240 # time in seconds
@@ -313,12 +315,12 @@ Submit the job and wait for it to finish. Once it is has finished, check the
 log file.
 
 ```bash
-[yourUsername@login1 ~]$ sbatch  example-job.sh
-[yourUsername@login1 ~]$ squeue -u yourUsername
+[abc123@platolgn001 ~] sbatch --account=hpc_p_training example-job.sh
+[abc123@platolgn001 ~]  
 ```
 
 ```bash
-[yourUsername@login1 ~]$ cat slurm-12.out
+[abc123@platolgn001 ~] cat slurm-12.out
 ```
 
 ```output
@@ -341,13 +343,13 @@ will be their own.
 ## Cancelling a Job
 
 Sometimes we'll make a mistake and need to cancel a job. This can be done with
-the `scancel` command. Let's submit a job and then cancel it using
+the `` command. Let's submit a job and then cancel it using
 its job number (remember to change the walltime so that it runs long enough for
 you to cancel it before it is killed!).
 
 ```bash
-[yourUsername@login1 ~]$ sbatch  example-job.sh
-[yourUsername@login1 ~]$ squeue -u yourUsername
+[abc123@platolgn001 ~] sbatch --account=hpc_p_training example-job.sh
+[abc123@platolgn001 ~]  
 ```
 
 ```output
@@ -362,9 +364,9 @@ return of your command prompt indicates that the request to cancel the job was
 successful.
 
 ```bash
-[yourUsername@login1 ~]$ scancel 38759
+[abc123@platolgn001 ~]  38759
 # It might take a minute for the job to disappear from the queue...
-[yourUsername@login1 ~]$ squeue -u yourUsername
+[abc123@platolgn001 ~]  
 ```
 
 ```output
@@ -388,15 +390,15 @@ Try submitting multiple jobs and then cancelling them all.
 First, submit a trio of jobs:
 
 ```bash
-[yourUsername@login1 ~]$ sbatch  example-job.sh
-[yourUsername@login1 ~]$ sbatch  example-job.sh
-[yourUsername@login1 ~]$ sbatch  example-job.sh
+[abc123@platolgn001 ~] sbatch --account=hpc_p_training example-job.sh
+[abc123@platolgn001 ~] sbatch --account=hpc_p_training example-job.sh
+[abc123@platolgn001 ~] sbatch --account=hpc_p_training example-job.sh
 ```
 
 Then, cancel them all:
 
 ```bash
-[yourUsername@login1 ~]$ scancel -u yourUsername
+[abc123@platolgn001 ~]  -u abc123
 ```
 
 :::::::::::::::::::::::::
@@ -412,28 +414,28 @@ There are very frequently tasks that need to be done interactively. Creating an
 entire job script might be overkill, but the amount of resources required is
 too much for a login node to handle. A good example of this might be building a
 genome index for alignment with a tool like [HISAT2][hisat]. Fortunately, we
-can run these types of tasks as a one-off with `srun`.
+can run these types of tasks as a one-off with ``.
 
-`srun` runs a single command on the cluster and then
+`` runs a single command on the cluster and then
 exits. Let's demonstrate this by running the `hostname` command with
-`srun`. (We can cancel an `srun`
+``. (We can cancel an ``
 job with `Ctrl-c`.)
 
 ```bash
-[yourUsername@login1 ~]$ srun hostname
+[abc123@platolgn001 ~]  hostname
 ```
 
 ```output
-smnode1
+platocpu028
 ```
 
-`srun` accepts all of the same options as
+`` accepts all of the same options as
 `sbatch`. However, instead of specifying these in a script,
 these options are specified on the command-line when starting a job. To submit
 a job that uses 2 CPUs for instance, we could use the following command:
 
 ```bash
-[yourUsername@login1 ~]$ srun -n 2 echo "This job will use 2 CPUs."
+[abc123@platolgn001 ~]  -n 2 echo "This job will use 2 CPUs."
 ```
 
 ```output
@@ -449,10 +451,10 @@ Typically, the resulting shell environment will be the same as that for
 Sometimes, you will need a lot of resources for interactive use. Perhaps it's
 our first time running an analysis or we are attempting to debug something that
 went wrong with a previous job. Fortunately, Slurm makes it
-easy to start an interactive job with `srun`:
+easy to start an interactive job with ``:
 
 ```bash
-[yourUsername@login1 ~]$ srun  --pty bash
+[abc123@platolgn001 ~]  --account=hpc_p_training --pty bash
 ```
 
 You should be presented with a bash prompt. Note that the prompt will likely
@@ -465,7 +467,7 @@ logged on. You can also verify this with `hostname`.
 
 To see graphical output inside your jobs, you need to use X11 forwarding. To
 connect with this feature enabled, use the `-Y` option when you login with
-the `ssh` command, e.g., `ssh -Y yourUsername@cluster.hpc-carpentry.org`.
+the `ssh` command, e.g., `ssh -Y abc123@plato.usask.ca`.
 
 To demonstrate what happens when you create a graphics window on the remote
 node, use the `xeyes` command. A relatively adorable pair of eyes should pop
@@ -475,8 +477,8 @@ XQuartz (and restarted your computer) for this to work.
 If your cluster has the
 [slurm-spank-x11](https://github.com/hautreux/slurm-spank-x11) plugin
 installed, you can ensure X11 forwarding within interactive jobs by using the
-`--x11` option for `srun` with the command
-`srun --x11 --pty bash`.
+`--x11` option for `` with the command
+` --x11 --pty bash`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

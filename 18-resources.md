@@ -45,7 +45,7 @@ written up guidance for getting the most out of it.
 
 A convenient way of figuring out the resources required for a job to run
 successfully is to submit a test job, and then ask the scheduler about its
-impact using `sacct -u yourUsername`. You can use this knowledge to set up the
+impact using ``. You can use this knowledge to set up the
 next job with a closer estimate of its load on the system. A good general rule
 is to ask the scheduler for 20% to 30% more time and memory than you expect the
 job to need. This ensures that minor fluctuations in run time or memory use
@@ -58,25 +58,17 @@ finish and free up the resources needed to match what you asked for.
 
 Since we already submitted `amdahl` to run on the cluster, we can query the
 scheduler to see how long our job took and what resources were used. We will
-use `sacct -u yourUsername` to get statistics about `parallel-job.sh`.
+use `` to get statistics about `parallel-job.sh`.
 
 ```bash
-[yourUsername@login1 ~]$ sacct -u yourUsername
+[abc123@platolgn001 ~] 
 ```
 
 
-```output
-       JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
------------- ---------- ---------- ---------- ---------- ---------- --------
-7               file.sh cpubase_b+ def-spons+          1  COMPLETED      0:0
-7.batch           batch            def-spons+          1  COMPLETED      0:0
-7.extern         extern            def-spons+          1  COMPLETED      0:0
-8               file.sh cpubase_b+ def-spons+          1  COMPLETED      0:0
-8.batch           batch            def-spons+          1  COMPLETED      0:0
-8.extern         extern            def-spons+          1  COMPLETED      0:0
-9            example-j+ cpubase_b+ def-spons+          1  COMPLETED      0:0
-9.batch           batch            def-spons+          1  COMPLETED      0:0
-9.extern         extern            def-spons+          1  COMPLETED      0:0
+``` error
+Error:
+! Snippet not found: resources/account-history.Rmd
+Paths checked: /__w/hpc-intro-usask/hpc-intro-usask/episodes/files/customization/Plato_slurm/snippets/resources/account-history.Rmd
 ```
 
 This shows all the jobs we ran today (note that there are multiple entries per
@@ -85,7 +77,7 @@ To get info about a specific job (for example, 347087), we change command
 slightly.
 
 ```bash
-[yourUsername@login1 ~]$ sacct -u yourUsername --long --jobs 347087
+[abc123@platolgn001 ~]   347087
 ```
 
 It will show a lot of info; in fact, every single piece of info collected on
@@ -94,7 +86,7 @@ information to `less` to make it easier to view (use the left and right arrow
 keys to scroll through fields).
 
 ```bash
-[yourUsername@login1 ~]$ sacct -u yourUsername --long --jobs 347087 | less -S
+[abc123@platolgn001 ~]   347087 | less -S
 ```
 
 ::::::::::::::::::::::::::::::::::::::  discussion
@@ -130,7 +122,7 @@ get your job dispatched earlier.
 Edit `parallel_job.sh` to set a better time estimate. How close can
 you get?
 
-Hint: use `--time`.
+Hint: use ``.
 
 :::::::::::::::  solution
 
@@ -140,7 +132,7 @@ The following line tells Slurm that our job should
 finish within 2 minutes:
 
 ```bash
-#SBATCH --time 00:02:00
+  00:02:00
 ```
 
 :::::::::::::::::::::::::

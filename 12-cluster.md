@@ -84,13 +84,13 @@ single argument.
 
 Go ahead and open your terminal or graphical SSH client, then log in to the
 cluster using your username and the remote computer you can reach from the
-outside world, cluster.hpc-carpentry.org.
+outside world, plato.usask.ca.
 
 ```bash
-[you@laptop:~]$ ssh yourUsername@cluster.hpc-carpentry.org
+[you@laptop:~]$ ssh abc123@plato.usask.ca
 ```
 
-Remember to replace `yourUsername` with your username or the one
+Remember to replace `abc123` with your username or the one
 supplied by the instructors. You may be asked for your password. Watch out: the
 characters you type after the password prompt are not displayed on the screen.
 Normal output will resume once you press `Enter`.
@@ -105,11 +105,11 @@ computer we are logged onto can be checked with the `hostname` command. (You
 may also notice that the current hostname is also part of our prompt!)
 
 ```bash
-[yourUsername@login1 ~]$ hostname
+[abc123@platolgn001 ~] hostname
 ```
 
 ```output
-login1
+platolgn001
 ```
 
 ::: challenge
@@ -127,7 +127,7 @@ differences you spot with your neighbors.
 
 ## It's a Beautiful Day in the Neighborhood
 
-The deepest layer should differ: `yourUsername` is uniquely yours.
+The deepest layer should differ: `abc123` is uniquely yours.
 Are there differences in the path at higher levels?
 
 If both of you have empty directories, they will look identical. If you
@@ -137,7 +137,7 @@ are you working on?
 Use `pwd` to **p**rint the **w**orking **d**irectory path:
 
 ```bash
-[yourUsername@login1 ~]$ pwd
+[abc123@platolgn001 ~] pwd
 ```
 
 You can run `ls` to **l**i**s**t the directory contents, though it's
@@ -145,7 +145,7 @@ possible nothing will show up (if no files have been provided). To be sure,
 use the `-a` flag to show hidden files, too.
 
 ```bash
-[yourUsername@login1 ~]$ ls -a
+[abc123@platolgn001 ~] ls -a
 ```
 
 At a minimum, this will show the current directory as `.`, and the parent
@@ -195,18 +195,17 @@ scheduler to submit jobs next, but for now, it can also tell us more
 information about the worker nodes.
 
 For example, we can view all of the worker nodes by running the command
-`sinfo`.
+``.
 
 ```bash
-[yourUsername@login1 ~]$ sinfo
+[abc123@platolgn001 ~] 
 ```
 
 
-```output
-PARTITION          AVAIL  TIMELIMIT  NODES  STATE NODELIST
-cpubase_bycore_b1*    up   infinite      4   idle node[1-2],smnode[1-2]
-node                  up   infinite      2   idle node[1-2]
-smnode                up   infinite      2   idle smnode[1-2]
+``` error
+Error:
+! Snippet not found: cluster/queue-info.Rmd
+Paths checked: /__w/hpc-intro-usask/hpc-intro-usask/episodes/files/customization/Plato_slurm/snippets/cluster/queue-info.Rmd
 ```
 
 There are also specialized machines used for managing disk storage, user
@@ -239,7 +238,7 @@ Note that, if you're logged in to the remote computer cluster, you need to
 log out first. To do so, type `Ctrl+d` or `exit`:
 
 ```bash
-[yourUsername@login1 ~]$ exit
+[abc123@platolgn001 ~] exit
 [you@laptop:~]$
 ```
 
@@ -282,16 +281,16 @@ Now compare the resources of your computer with those of the head node.
 :::: solution
 
 ```bash
-[you@laptop:~]$ ssh yourUsername@cluster.hpc-carpentry.org
-[yourUsername@login1 ~]$ nproc --all
-[yourUsername@login1 ~]$ free -m
+[you@laptop:~]$ ssh abc123@plato.usask.ca
+[abc123@platolgn001 ~] nproc --all
+[abc123@platolgn001 ~] free -m
 ```
 
 You can get more information about the processors using `lscpu`,
 and a lot of detail about the memory by reading the file `/proc/meminfo`:
 
 ```bash
-[yourUsername@login1 ~]$ less /proc/meminfo
+[abc123@platolgn001 ~] less /proc/meminfo
 ```
 
 You can also explore the available filesystems using `df` to show **d**isk
@@ -300,7 +299,7 @@ i.e., GB instead of B. The **t**ype flag `-T` shows what kind of filesystem
 each resource is.
 
 ```bash
-[yourUsername@login1 ~]$ df -Th
+[abc123@platolgn001 ~] df -Th
 ```
 ::::
 :::
@@ -321,18 +320,11 @@ This is an important point to remember: files saved on one node
 :::
 
 
-::: challenge
-
-## Explore a Worker Node
-
-Finally, let's look at the resources available on the worker nodes
-where your jobs will actually run. Try running this command to see
-the name, CPUs and memory available on one of the worker nodes:
-
-```bash
-[yourUsername@login1 ~]$ sinfo -o "%n %c %m" | column -t
+``` error
+Error:
+! Snippet not found: cluster/specific-node-info.Rmd
+Paths checked: /__w/hpc-intro-usask/hpc-intro-usask/episodes/files/customization/Plato_slurm/snippets/cluster/specific-node-info.Rmd
 ```
-:::
 
 ::: discussion
 ## Compare Your Computer, the login node and the compute node

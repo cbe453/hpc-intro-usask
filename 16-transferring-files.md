@@ -267,7 +267,7 @@ mechanism.
 To *upload to* another computer, the template command is
 
 ```bash
-[you@laptop:~]$ scp local_file yourUsername@cluster.hpc-carpentry.org:remote_destination
+[you@laptop:~]$ scp local_file abc123@plato.usask.ca:remote_destination
 ```
 
 in which `@` and `:` are field separators and `remote_destination` is a path
@@ -286,12 +286,12 @@ for `local_file`.
 Upload the lesson material to your remote home directory like so:
 
 ```bash
-[you@laptop:~]$ scp amdahl.tar.gz yourUsername@cluster.hpc-carpentry.org:
+[you@laptop:~]$ scp amdahl.tar.gz abc123@plato.usask.ca:
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Why Not Download on HPC Carpentry's Cloud Cluster Directly?
+## Why Not Download on Plato Directly?
 
 Most computer clusters are protected from the open internet by a *firewall*.
 For enhanced security, some are configured to allow traffic *inbound*, but
@@ -308,10 +308,10 @@ OK!
 ## Commands
 
 ```bash
-[you@laptop:~]$ ssh yourUsername@cluster.hpc-carpentry.org
-[yourUsername@login1 ~]$ wget -O amdahl.tar.gz https://github.com/hpc-carpentry/amdahl/tarball/main
+[you@laptop:~]$ ssh abc123@plato.usask.ca
+[abc123@platolgn001 ~] wget -O amdahl.tar.gz https://github.com/hpc-carpentry/amdahl/tarball/main
 # or
-[yourUsername@login1 ~]$ curl -o amdahl.tar.gz -L https://github.com/hpc-carpentry/amdahl/tarball/main
+[abc123@platolgn001 ~] curl -o amdahl.tar.gz -L https://github.com/hpc-carpentry/amdahl/tarball/main
 ```
 
 :::::::::::::::::::::::::
@@ -330,7 +330,7 @@ those, and so on, until it reaches the bottom of the directory tree rooted at
 the folder name you provided.
 
 ```bash
-[you@laptop:~]$ scp -r amdahl yourUsername@cluster.hpc-carpentry.org:
+[you@laptop:~]$ scp -r amdahl abc123@plato.usask.ca:
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -381,7 +381,7 @@ The syntax is similar to `scp`. To transfer *to* another computer with
 commonly used options:
 
 ```bash
-[you@laptop:~]$ rsync -avP amdahl.tar.gz yourUsername@cluster.hpc-carpentry.org:
+[you@laptop:~]$ rsync -avP amdahl.tar.gz abc123@plato.usask.ca:
 ```
 
 The options are:
@@ -395,7 +395,7 @@ The options are:
 To recursively copy a directory, we can use the same options:
 
 ```bash
-[you@laptop:~]$ rsync -avP amdahl yourUsername@cluster.hpc-carpentry.org:~/
+[you@laptop:~]$ rsync -avP amdahl abc123@plato.usask.ca:~/
 ```
 
 As written, this will place the local directory and its contents under your
@@ -407,7 +407,7 @@ copied directly into the destination directory.
 To download a file, we simply change the source and destination:
 
 ```bash
-[you@laptop:~]$ rsync -avP yourUsername@cluster.hpc-carpentry.org:amdahl ./
+[you@laptop:~]$ rsync -avP abc123@plato.usask.ca:amdahl ./
 ```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -426,7 +426,7 @@ Say we have to connect `rsync` through port 768 instead of 22. How would we
 modify this command?
 
 ```bash
-[you@laptop:~]$ rsync amdahl.tar.gz yourUsername@cluster.hpc-carpentry.org:
+[you@laptop:~]$ rsync amdahl.tar.gz abc123@plato.usask.ca:
 ```
 
 *Hint:* check the `man` page or "help" for `rsync`.
@@ -440,7 +440,7 @@ modify this command?
 [you@laptop:~]$ rsync --help | grep port
      --port=PORT             specify double-colon alternate port number
 See http://rsync.samba.org/ for updates, bug reports, and answers
-[you@laptop:~]$ rsync --port=768 amdahl.tar.gz yourUsername@cluster.hpc-carpentry.org:
+[you@laptop:~]$ rsync --port=768 amdahl.tar.gz abc123@plato.usask.ca:
 ```
 
 (Note that this command will fail, as the correct port in this case is the
@@ -469,7 +469,7 @@ implementation.
 If you have disconnected, log back in to the cluster:
 
 ```
-[you@laptop:~]$ ssh yourUsername@cluster.hpc-carpentry.org
+[you@laptop:~]$ ssh abc123@plato.usask.ca
 ```
 
 Then go to the re-named `amdahl` source tree. Ensure that the
@@ -477,8 +477,8 @@ appropriate Python and MPI modules are loaded, and install
 the executable using the Python `pip` installation command:
 
 ```bash
-[yourUsername@login1 ~]$ cd amdahl
-[yourUsername@login1 ~]$ python3 -m pip install --user .
+[abc123@platolgn001 ~] cd amdahl
+[abc123@platolgn001 ~] python3 -m pip install --user .
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -511,19 +511,19 @@ then `rsync` it to the cluster, extract, and install:
 
 ```bash
 [you@laptop:~]$ wget -O mpi4py.tar.gz https://github.com/mpi4py/mpi4py/tarball/master
-[you@laptop:~]$ scp mpi4py.tar.gz yourUsername@cluster.hpc-carpentry.org:
+[you@laptop:~]$ scp mpi4py.tar.gz abc123@plato.usask.ca:
 # or
-[you@laptop:~]$ rsync -avP mpi4py.tar.gz yourUsername@cluster.hpc-carpentry.org:
+[you@laptop:~]$ rsync -avP mpi4py.tar.gz abc123@plato.usask.ca:
 ```
 
 ```bash
-[you@laptop:~]$ ssh yourUsername@cluster.hpc-carpentry.org
-[yourUsername@login1 ~]$ tar -xvzf mpi4py.tar.gz  # extract the archive
-[yourUsername@login1 ~]$ mv mpi4py* mpi4py        # rename the directory
-[yourUsername@login1 ~]$ cd mpi4py
-[yourUsername@login1 ~]$ python3 -m pip install --user .
-[yourUsername@login1 ~]$ cd ../amdahl
-[yourUsername@login1 ~]$ python3 -m pip install --user .
+[you@laptop:~]$ ssh abc123@plato.usask.ca
+[abc123@platolgn001 ~] tar -xvzf mpi4py.tar.gz  # extract the archive
+[abc123@platolgn001 ~] mv mpi4py* mpi4py        # rename the directory
+[abc123@platolgn001 ~] cd mpi4py
+[abc123@platolgn001 ~] python3 -m pip install --user .
+[abc123@platolgn001 ~] cd ../amdahl
+[abc123@platolgn001 ~] python3 -m pip install --user .
 ```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -545,7 +545,7 @@ To check whether this warning is a problem, use `which` to search for the
 `amdahl` program:
 
 ```bash
-[yourUsername@login1 ~]$ which amdahl
+[abc123@platolgn001 ~] which amdahl
 ```
 
 If the command returns no output, displaying a new prompt, it means the file
@@ -555,15 +555,15 @@ Edit your shell configuration file as follows, then log off the cluster and
 back on again so it takes effect.
 
 ```bash
-[yourUsername@login1 ~]$ nano ~/.bashrc
-[yourUsername@login1 ~]$ tail ~/.bashrc
+[abc123@platolgn001 ~] nano ~/.bashrc
+[abc123@platolgn001 ~] tail ~/.bashrc
 ```
 
 ```output
 export PATH=${PATH}:${HOME}/.local/bin
 ```
 
-After logging back in to cluster.hpc-carpentry.org, `which` should be able to
+After logging back in to plato.usask.ca, `which` should be able to
 find `amdahl` without difficulties.
 If you had to load a Python module, load it again.
 
@@ -575,7 +575,7 @@ If you had to load a Python module, load it again.
 Many command-line programs include a "help" message. Try it with `amdahl`:
 
 ```bash
-[yourUsername@login1 ~]$ amdahl --help
+[abc123@platolgn001 ~] amdahl --help
 ```
 
 ```output
