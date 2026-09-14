@@ -347,7 +347,7 @@ python3 --version
 ```
 
 ```bash
-[abc123@platolgn001 ~] sbatch --account=hpc_p_training python-module.sh
+[abc123@platolgn001 ~] sbatch --account=hpc_s_workshop python-module.sh
 ```
 
 :::::::::::::::::::::::::

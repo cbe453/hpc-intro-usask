@@ -109,7 +109,7 @@ a compute node which the queuing system has identified as being
 available to perform the work.
 
 ```bash
-[abc123@platolgn001 ~] sbatch --account=hpc_p_training example-job.sh
+[abc123@platolgn001 ~] sbatch --account=hpc_s_workshop example-job.sh
 ```
 
 
@@ -188,7 +188,7 @@ hostname
 Submit the job and monitor its status:
 
 ```bash
-[abc123@platolgn001 ~] sbatch --account=hpc_p_training example-job.sh
+[abc123@platolgn001 ~] sbatch --account=hpc_s_workshop example-job.sh
 [abc123@platolgn001 ~]  
 ```
 
@@ -282,7 +282,7 @@ hostname
 ```
 
 ```bash
-[abc123@platolgn001 ~] sbatch --account=hpc_p_training example-job.sh
+[abc123@platolgn001 ~] sbatch --account=hpc_s_workshop example-job.sh
 ```
 
 Why are the Slurm runtime and `sleep` time not identical?
@@ -315,7 +315,7 @@ Submit the job and wait for it to finish. Once it is has finished, check the
 log file.
 
 ```bash
-[abc123@platolgn001 ~] sbatch --account=hpc_p_training example-job.sh
+[abc123@platolgn001 ~] sbatch --account=hpc_s_workshop example-job.sh
 [abc123@platolgn001 ~]  
 ```
 
@@ -348,7 +348,7 @@ its job number (remember to change the walltime so that it runs long enough for
 you to cancel it before it is killed!).
 
 ```bash
-[abc123@platolgn001 ~] sbatch --account=hpc_p_training example-job.sh
+[abc123@platolgn001 ~] sbatch --account=hpc_s_workshop example-job.sh
 [abc123@platolgn001 ~]  
 ```
 
@@ -390,9 +390,9 @@ Try submitting multiple jobs and then cancelling them all.
 First, submit a trio of jobs:
 
 ```bash
-[abc123@platolgn001 ~] sbatch --account=hpc_p_training example-job.sh
-[abc123@platolgn001 ~] sbatch --account=hpc_p_training example-job.sh
-[abc123@platolgn001 ~] sbatch --account=hpc_p_training example-job.sh
+[abc123@platolgn001 ~] sbatch --account=hpc_s_workshop example-job.sh
+[abc123@platolgn001 ~] sbatch --account=hpc_s_workshop example-job.sh
+[abc123@platolgn001 ~] sbatch --account=hpc_s_workshop example-job.sh
 ```
 
 Then, cancel them all:
@@ -454,7 +454,7 @@ went wrong with a previous job. Fortunately, Slurm makes it
 easy to start an interactive job with ``:
 
 ```bash
-[abc123@platolgn001 ~]  --account=hpc_p_training --pty bash
+[abc123@platolgn001 ~]  --account=hpc_s_workshop --pty bash
 ```
 
 You should be presented with a bash prompt. Note that the prompt will likely
