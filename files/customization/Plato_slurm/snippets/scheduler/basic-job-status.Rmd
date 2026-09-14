@@ -1,6 +1,6 @@
 ```output
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-    9 cpubase_b example-   user01  R       0:05      1 node1
+    9 plato_sho example-   user01  R       0:05      1 platocpu028
 ```
 
 We can see all the details of our job, most importantly that it is in the `R`
