@@ -113,10 +113,8 @@ available to perform the work.
 ```
 
 
-``` error
-Error:
-! Snippet not found: scheduler/basic-job-script.Rmd
-Paths checked: /__w/hpc-intro-usask/hpc-intro-usask/episodes/files/customization/Plato_slurm/snippets/scheduler/basic-job-script.Rmd
+```output
+Submitted batch job 7
 ```
 
 And that's all we need to do to submit a job. Our work is done -- now the

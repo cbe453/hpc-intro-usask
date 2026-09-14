@@ -99,10 +99,18 @@ Using `nano`, create a script called
 `job_single_amdahl.sh` containing the following:
 
 
-``` error
-Error:
-! Snippet not found: array/job_single_amdahl.Rmd
-Paths checked: /__w/hpc-intro-usask/hpc-intro-usask/episodes/files/customization/Plato_slurm/snippets/array/job_single_amdahl.Rmd
+```bash
+#!/bin/bash
+ =comet_training
+ =short_free
+ =amdahl_defaults
+ =1
+ =1
+ =00:05:00
+
+echo "Run the Amdahl executable with default arguments."
+amdahl
+echo "Finished Amdahl."
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -179,10 +187,23 @@ and to direct the output of each array element to a separate file.
 :::: solution
 
 
-``` error
-Error:
-! Snippet not found: array/job_array_amdahl.Rmd
-Paths checked: /__w/hpc-intro-usask/hpc-intro-usask/episodes/files/customization/Plato_slurm/snippets/array/job_array_amdahl.Rmd
+```bash
+#!/bin/bash
+ =comet_training
+ =short_free
+ =amdahl-array
+ =1
+ =1
+ =1-4
+ =00:05:00
+ =amdahl-%A-%a
+
+# Run the Amdahl executable several times independently.
+
+echo "Starting the Amdahl array script."
+amdahl 
+echo "Finished Amdahl array script."
+
 ```
 
 ::::

@@ -30,10 +30,27 @@ system, and can now run it on the cluster.
 Create a submission file, requesting one task on a single node, then launch it.
 
 
-``` error
-Error:
-! Snippet not found: parallel/one-task.Rmd
-Paths checked: /__w/hpc-intro-usask/hpc-intro-usask/episodes/files/customization/Plato_slurm/snippets/parallel/one-task.Rmd
+```bash
+[abc123@platolgn001 ~] nano serial-job.sh
+[abc123@platolgn001 ~] cat serial-job.sh
+```
+
+```bash
+#!/bin/bash
+  solo-job
+  short_free
+ -N 1
+ -n 1
+
+# Load the computing environment we need
+module load 
+
+# Execute the task
+amdahl
+```
+
+```bash
+[abc123@platolgn001 ~] sbatch serial-job.sh
 ```
 
 As before, use the Slurm status commands to check whether your job
@@ -134,10 +151,62 @@ by examining the environment variables set when the job is launched.
 Let's modify the job script to request more cores and use the MPI run-time.
 
 
-``` error
-Error:
-! Snippet not found: parallel/four-tasks.Rmd
-Paths checked: /__w/hpc-intro-usask/hpc-intro-usask/episodes/files/customization/Plato_slurm/snippets/parallel/four-tasks.Rmd
+```bash
+[abc123@platolgn001 ~] cp serial-job.sh parallel-job.sh
+[abc123@platolgn001 ~] nano parallel-job.sh
+[abc123@platolgn001 ~] cat parallel-job.sh
+```
+
+```bash
+#!/bin/bash
+  parallel-job
+  short_free
+ -N 1
+ -n 4
+
+# Load the computing environment we need
+# (mpi4py and numpy are in SciPy-bundle)
+module load 
+module load SciPy-bundle
+
+# Execute the task
+mpiexec amdahl
+```
+
+Then submit your job. Note that the submission command has not really changed
+from how we submitted the serial job: all the parallel settings are in the
+batch file rather than the command line.
+
+```bash
+[abc123@platolgn001 ~] sbatch parallel-job.sh
+```
+
+As before, use the status commands to check when your job runs.
+
+```bash
+[abc123@platolgn001 ~] ls -t
+```
+
+```output
+slurm-347178.out  parallel-job.sh  amdahl   pyproject.toml
+slurm-347087.out  serial-job.sh    LICENSE  README.md
+```
+
+```bash
+[abc123@platolgn001 ~] cat slurm-347178.out
+```
+
+```output
+Doing 30.000000 seconds of 'work' on 4 processors,
+ which should take 12.000000 seconds with 0.800000 parallel proportion of the workload.
+
+  Hello, World! I am process 0 of 4 on platocpu028. I will do all the serial 'work' for 6.851971 seconds.
+  Hello, World! I am process 2 of 4 on platocpu028. I will do parallel 'work' for 6.726753 seconds.
+  Hello, World! I am process 1 of 4 on platocpu028. I will do parallel 'work' for 6.742398 seconds.
+  Hello, World! I am process 3 of 4 on platocpu028. I will do parallel 'work' for 6.782674 seconds.
+  Hello, World! I am process 0 of 4 on platocpu028. I will do parallel 'work' for 6.468167 seconds.
+
+Total execution time (according to rank 0): 13.579746 seconds
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -201,10 +270,65 @@ Let's run one more job, so we can see how close to a straight line our `amdahl`
 code gets.
 
 
-``` error
-Error:
-! Snippet not found: parallel/eight-tasks.Rmd
-Paths checked: /__w/hpc-intro-usask/hpc-intro-usask/episodes/files/customization/Plato_slurm/snippets/parallel/eight-tasks.Rmd
+```bash
+[abc123@platolgn001 ~] nano parallel-job.sh
+[abc123@platolgn001 ~] cat parallel-job.sh
+```
+
+```bash
+#!/bin/bash
+  parallel-job
+  short_free
+ -N 1
+ -n 8
+
+# Load the computing environment we need
+# (mpi4py and numpy are in SciPy-bundle)
+module load 
+module load SciPy-bundle
+
+# Execute the task
+mpiexec amdahl
+```
+
+Then submit your job. Note that the submission command has not really changed
+from how we submitted the serial job: all the parallel settings are in the
+batch file rather than the command line.
+
+```bash
+[abc123@platolgn001 ~] sbatch parallel-job.sh
+```
+
+As before, use the status commands to check when your job runs.
+
+```bash
+[abc123@platolgn001 ~] ls -t
+```
+
+```output
+slurm-347271.out     slurm-347178.out  serial-job.sh  LICENSE         README.md
+parallel-job.sh      slurm-347087.out  amdahl         pyproject.toml
+```
+
+```bash
+[abc123@platolgn001 ~] cat slurm-347178.out
+```
+
+```output
+Doing 30.000000 seconds of 'work' on 8 processors,
+ which should take 9.000000 seconds with 0.800000 parallel proportion of the workload.
+
+  Hello, World! I am process 4 of 8 on platocpu028. I will do parallel 'work' for 3.157831 seconds.
+  Hello, World! I am process 0 of 8 on platocpu028. I will do all the serial 'work' for 6.031285 seconds.
+  Hello, World! I am process 2 of 8 on platocpu028. I will do parallel 'work' for 3.215214 seconds.
+  Hello, World! I am process 1 of 8 on platocpu028. I will do parallel 'work' for 3.524280 seconds.
+  Hello, World! I am process 3 of 8 on platocpu028. I will do parallel 'work' for 3.589039 seconds.
+  Hello, World! I am process 5 of 8 on platocpu028. I will do parallel 'work' for 3.501589 seconds.
+  Hello, World! I am process 6 of 8 on platocpu028. I will do parallel 'work' for 3.207707 seconds.
+  Hello, World! I am process 7 of 8 on platocpu028. I will do parallel 'work' for 3.071680 seconds.
+  Hello, World! I am process 0 of 8 on platocpu028. I will do parallel 'work' for 3.482018 seconds.
+
+Total execution time (according to rank 0): 9.514393 seconds
 ```
 
 ::::::::::::::::::::::::::::::::::::::  discussion

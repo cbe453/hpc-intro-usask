@@ -65,10 +65,18 @@ use `` to get statistics about `parallel-job.sh`.
 ```
 
 
-``` error
-Error:
-! Snippet not found: resources/account-history.Rmd
-Paths checked: /__w/hpc-intro-usask/hpc-intro-usask/episodes/files/customization/Plato_slurm/snippets/resources/account-history.Rmd
+```output
+       JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
+------------ ---------- ---------- ---------- ---------- ---------- --------
+7               file.sh cpubase_b+ def-spons+          1  COMPLETED      0:0
+7.batch           batch            def-spons+          1  COMPLETED      0:0
+7.extern         extern            def-spons+          1  COMPLETED      0:0
+8               file.sh cpubase_b+ def-spons+          1  COMPLETED      0:0
+8.batch           batch            def-spons+          1  COMPLETED      0:0
+8.extern         extern            def-spons+          1  COMPLETED      0:0
+9            example-j+ cpubase_b+ def-spons+          1  COMPLETED      0:0
+9.batch           batch            def-spons+          1  COMPLETED      0:0
+9.extern         extern            def-spons+          1  COMPLETED      0:0
 ```
 
 This shows all the jobs we ran today (note that there are multiple entries per

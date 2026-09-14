@@ -202,10 +202,11 @@ For example, we can view all of the worker nodes by running the command
 ```
 
 
-``` error
-Error:
-! Snippet not found: cluster/queue-info.Rmd
-Paths checked: /__w/hpc-intro-usask/hpc-intro-usask/episodes/files/customization/Plato_slurm/snippets/cluster/queue-info.Rmd
+```output
+PARTITION          AVAIL  TIMELIMIT  NODES  STATE NODELIST
+cpubase_bycore_b1*    up   infinite      4   idle node[1-2],smnode[1-2]
+node                  up   infinite      2   idle node[1-2]
+smnode                up   infinite      2   idle smnode[1-2]
 ```
 
 There are also specialized machines used for managing disk storage, user
@@ -320,11 +321,18 @@ This is an important point to remember: files saved on one node
 :::
 
 
-``` error
-Error:
-! Snippet not found: cluster/specific-node-info.Rmd
-Paths checked: /__w/hpc-intro-usask/hpc-intro-usask/episodes/files/customization/Plato_slurm/snippets/cluster/specific-node-info.Rmd
+::: challenge
+
+## Explore a Worker Node
+
+Finally, let's look at the resources available on the worker nodes
+where your jobs will actually run. Try running this command to see
+the name, CPUs and memory available on one of the worker nodes:
+
+```bash
+[abc123@platolgn001 ~] sinfo -o "%n %c %m" | column -t
 ```
+:::
 
 ::: discussion
 ## Compare Your Computer, the login node and the compute node
