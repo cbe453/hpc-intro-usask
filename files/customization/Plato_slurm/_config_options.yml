@@ -4,7 +4,7 @@
 # > HPC_CARPENTRY_CUSTOMIZATION=episodes/files/customization/NCL_Comet_slurm/_config_options.yml
 # > export HPC_CARPENTRY_CUSTOMIZATION
 ---
-snippets: episodes/files/customization/NCL_Comet_slurm/snippets
+snippets: episodes/files/customization/Plato_slurm/snippets
 
 local:
   prompt: "[you@laptop:~]$"
