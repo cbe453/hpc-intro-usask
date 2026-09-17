@@ -176,7 +176,7 @@ name of a job. Add an option to the script:
 
 ```bash
 `r config$remote$shebang`
-`r config$sched$flag$name` hello-world
+`r config$sched$comment` `r config$sched$flag$name` hello-world
 
 echo -n "This script is running on "
 hostname
