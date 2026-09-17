@@ -38,7 +38,7 @@ Create a submission file, requesting one task on a single node, then launch it.
 ```bash
 #!/bin/bash
 #SBATCH --job-name solo-job
-#SBATCH  short_free
+#SBATCH --partition short_free
 #SBATCH -N 1
 #SBATCH -n 1
 
@@ -57,7 +57,7 @@ As before, use the Slurm status commands to check whether your job
 is running and when it ends:
 
 ```bash
-[abc123@platolgn001 ~]  
+[abc123@platolgn001 ~]  -u yourUsername
 ```
 
 Use `ls` to locate the output file. The `-t` flag sorts in
@@ -160,7 +160,7 @@ Let's modify the job script to request more cores and use the MPI run-time.
 ```bash
 #!/bin/bash
 #SBATCH --job-name parallel-job
-#SBATCH  short_free
+#SBATCH --partition short_free
 #SBATCH -N 1
 #SBATCH -n 4
 
@@ -278,7 +278,7 @@ code gets.
 ```bash
 #!/bin/bash
 #SBATCH --job-name parallel-job
-#SBATCH  short_free
+#SBATCH --partition short_free
 #SBATCH -N 1
 #SBATCH -n 8
 

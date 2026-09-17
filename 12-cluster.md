@@ -195,10 +195,10 @@ scheduler to submit jobs next, but for now, it can also tell us more
 information about the worker nodes.
 
 For example, we can view all of the worker nodes by running the command
-``.
+`sinfo`.
 
 ```bash
-[abc123@platolgn001 ~] 
+[abc123@platolgn001 ~] sinfo
 ```
 
 

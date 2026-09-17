@@ -121,10 +121,10 @@ And that's all we need to do to submit a job. Our work is done -- now the
 scheduler takes over and tries to run the job for us. While the job is waiting
 to run, it goes into a list of jobs called the *queue*. To check on our job's
 status, we check the queue using the command
-` `.
+` -u yourUsername`.
 
 ```bash
-[abc123@platolgn001 ~]  
+[abc123@platolgn001 ~]  -u yourUsername
 ```
 
 ```output
@@ -187,7 +187,7 @@ Submit the job and monitor its status:
 
 ```bash
 [abc123@platolgn001 ~] sbatch --account=hpc_s_workshop example-job.sh
-[abc123@platolgn001 ~]  
+[abc123@platolgn001 ~]  -u yourUsername
 ```
 
 ```output
@@ -314,7 +314,7 @@ log file.
 
 ```bash
 [abc123@platolgn001 ~] sbatch --account=hpc_s_workshop example-job.sh
-[abc123@platolgn001 ~]  
+[abc123@platolgn001 ~]  -u yourUsername
 ```
 
 ```bash
@@ -341,13 +341,13 @@ will be their own.
 ## Cancelling a Job
 
 Sometimes we'll make a mistake and need to cancel a job. This can be done with
-the `` command. Let's submit a job and then cancel it using
+the `scancel` command. Let's submit a job and then cancel it using
 its job number (remember to change the walltime so that it runs long enough for
 you to cancel it before it is killed!).
 
 ```bash
 [abc123@platolgn001 ~] sbatch --account=hpc_s_workshop example-job.sh
-[abc123@platolgn001 ~]  
+[abc123@platolgn001 ~]  -u yourUsername
 ```
 
 ```output
@@ -362,9 +362,9 @@ return of your command prompt indicates that the request to cancel the job was
 successful.
 
 ```bash
-[abc123@platolgn001 ~]  38759
+[abc123@platolgn001 ~] scancel 38759
 # It might take a minute for the job to disappear from the queue...
-[abc123@platolgn001 ~]  
+[abc123@platolgn001 ~]  -u yourUsername
 ```
 
 ```output
@@ -396,7 +396,7 @@ First, submit a trio of jobs:
 Then, cancel them all:
 
 ```bash
-[abc123@platolgn001 ~]  -u abc123
+[abc123@platolgn001 ~] scancel -u abc123
 ```
 
 :::::::::::::::::::::::::
@@ -412,28 +412,28 @@ There are very frequently tasks that need to be done interactively. Creating an
 entire job script might be overkill, but the amount of resources required is
 too much for a login node to handle. A good example of this might be building a
 genome index for alignment with a tool like [HISAT2][hisat]. Fortunately, we
-can run these types of tasks as a one-off with ``.
+can run these types of tasks as a one-off with `srun`.
 
-`` runs a single command on the cluster and then
+`srun` runs a single command on the cluster and then
 exits. Let's demonstrate this by running the `hostname` command with
-``. (We can cancel an ``
+`srun`. (We can cancel an `srun`
 job with `Ctrl-c`.)
 
 ```bash
-[abc123@platolgn001 ~]  hostname
+[abc123@platolgn001 ~] srun hostname
 ```
 
 ```output
 platocpu028
 ```
 
-`` accepts all of the same options as
+`srun` accepts all of the same options as
 `sbatch`. However, instead of specifying these in a script,
 these options are specified on the command-line when starting a job. To submit
 a job that uses 2 CPUs for instance, we could use the following command:
 
 ```bash
-[abc123@platolgn001 ~]  -n 2 echo "This job will use 2 CPUs."
+[abc123@platolgn001 ~] srun -n 2 echo "This job will use 2 CPUs."
 ```
 
 ```output
@@ -449,10 +449,10 @@ Typically, the resulting shell environment will be the same as that for
 Sometimes, you will need a lot of resources for interactive use. Perhaps it's
 our first time running an analysis or we are attempting to debug something that
 went wrong with a previous job. Fortunately, Slurm makes it
-easy to start an interactive job with ``:
+easy to start an interactive job with `srun`:
 
 ```bash
-[abc123@platolgn001 ~]  --account=hpc_s_workshop --pty bash
+[abc123@platolgn001 ~] srun --account=hpc_s_workshop --pty bash
 ```
 
 You should be presented with a bash prompt. Note that the prompt will likely
@@ -475,8 +475,8 @@ XQuartz (and restarted your computer) for this to work.
 If your cluster has the
 [slurm-spank-x11](https://github.com/hautreux/slurm-spank-x11) plugin
 installed, you can ensure X11 forwarding within interactive jobs by using the
-`--x11` option for `` with the command
-` --x11 --pty bash`.
+`--x11` option for `srun` with the command
+`srun --x11 --pty bash`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
