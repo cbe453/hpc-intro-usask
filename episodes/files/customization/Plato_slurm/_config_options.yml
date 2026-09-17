@@ -39,6 +39,7 @@ sched:
   qos: "short"
   account: "comet_training"
   project: "FIXME_comet_training"
-  comment: '#'
+  comment: '#SBATCH'
   flag:
-    name: "#SBATCH"
+    name: "--job-name"
+    time: "--time"

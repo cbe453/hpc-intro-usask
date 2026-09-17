@@ -128,7 +128,7 @@ status, we check the queue using the command
 
 ```output
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-    9 cpubase_b example-   user01  R       0:05      1 node1
+    9 plato_sho example-   abc123  R       0:05      1 platocpu028
 ```
 
 We can see all the details of our job, most importantly that it is in the `R`
@@ -191,7 +191,7 @@ Submit the job and monitor its status:
 
 ```output
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-   10 cpubase_b hello-wo   user01  R       0:02      1 node1
+   10 plato_sho hello-wo   abc123  R       0:02      1 platocpu028
 ```
 
 Fantastic, we've successfully changed the name of our job!
