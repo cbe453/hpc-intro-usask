@@ -149,7 +149,7 @@ If we accidentally make a typo for example:
 we instead see something like:
 
 ```output
-/usr/bin/which: no pyython3 in (/abc123/.local/bin:/abc123/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin)
+/usr/bin/which: no pyython3 in (/home/abc123/.local/bin:/home/abc123/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin)
 ```
 
 This wall of text is actually a list of directories separated by the
@@ -157,8 +157,8 @@ This wall of text is actually a list of directories separated by the
 directories for `pyython3`, but could not find it:
 
 ```output
-/abc123/.local/bin
-/abc123/bin
+/home/abc123/.local/bin
+/home/abc123/bin
 /usr/local/bin
 /usr/bin
 /usr/local/sbin

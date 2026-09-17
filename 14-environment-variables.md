@@ -51,11 +51,11 @@ in a typical shell session:
 
 ```output
 ...
-HOME=/abc123
+HOME=/home/abc123
 HOSTNAME=platolgn001
 HOSTTYPE=
-PATH=/abc123/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
-PWD=/abc123
+PATH=/home/abc123/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+PWD=/home/abc123
 UID=1000
 USER=abc123
 ...
@@ -250,7 +250,7 @@ as it finds a match, it stops searching and executes the program.
 To show how this works, here are the components of `PATH` listed one per line:
 
 ```output
-/abc123/bin
+/home/abc123/bin
 /usr/local/bin
 /usr/bin
 /usr/local/sbin
