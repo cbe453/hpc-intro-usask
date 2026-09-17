@@ -177,7 +177,7 @@ name of a job. Add an option to the script:
 
 ```bash
 #!/bin/bash
---job-name hello-world
+#SBATCH --job-name hello-world
 
 echo -n "This script is running on "
 hostname
