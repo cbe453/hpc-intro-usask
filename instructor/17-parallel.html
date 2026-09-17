@@ -420,10 +420,10 @@ launch it.</p>
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1" aria-label="code-block-2-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1" aria-label="code-block-2-2"></a><span class="co"># #SBATCH solo-job</span></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1" aria-label="code-block-2-3"></a><span class="co">#  short_free</span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1" aria-label="code-block-2-4"></a><span class="co"># -N 1</span></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1" aria-label="code-block-2-5"></a><span class="co"># -n 1</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1" aria-label="code-block-2-2"></a><span class="co">#SBATCH --job-name solo-job</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1" aria-label="code-block-2-3"></a><span class="co">#SBATCH  short_free</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1" aria-label="code-block-2-4"></a><span class="co">#SBATCH -N 1</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1" aria-label="code-block-2-5"></a><span class="co">#SBATCH -n 1</span></span>
 <span id="cb2-6"><a href="#cb2-6" tabindex="-1" aria-label="code-block-2-6"></a></span>
 <span id="cb2-7"><a href="#cb2-7" tabindex="-1" aria-label="code-block-2-7"></a><span class="co"># Load the computing environment we need</span></span>
 <span id="cb2-8"><a href="#cb2-8" tabindex="-1" aria-label="code-block-2-8"></a><span class="ex">module</span> load </span>
@@ -557,10 +557,10 @@ run-time.</p>
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1" aria-label="code-block-10-2"></a><span class="co"># #SBATCH parallel-job</span></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1" aria-label="code-block-10-3"></a><span class="co">#  short_free</span></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1" aria-label="code-block-10-4"></a><span class="co"># -N 1</span></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1" aria-label="code-block-10-5"></a><span class="co"># -n 4</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1" aria-label="code-block-10-2"></a><span class="co">#SBATCH --job-name parallel-job</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1" aria-label="code-block-10-3"></a><span class="co">#SBATCH  short_free</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1" aria-label="code-block-10-4"></a><span class="co">#SBATCH -N 1</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1" aria-label="code-block-10-5"></a><span class="co">#SBATCH -n 4</span></span>
 <span id="cb10-6"><a href="#cb10-6" tabindex="-1" aria-label="code-block-10-6"></a></span>
 <span id="cb10-7"><a href="#cb10-7" tabindex="-1" aria-label="code-block-10-7"></a><span class="co"># Load the computing environment we need</span></span>
 <span id="cb10-8"><a href="#cb10-8" tabindex="-1" aria-label="code-block-10-8"></a><span class="co"># (mpi4py and numpy are in SciPy-bundle)</span></span>
@@ -682,10 +682,10 @@ our <code>amdahl</code> code gets.</p>
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1" aria-label="code-block-17-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb17-2"><a href="#cb17-2" tabindex="-1" aria-label="code-block-17-2"></a><span class="co"># #SBATCH parallel-job</span></span>
-<span id="cb17-3"><a href="#cb17-3" tabindex="-1" aria-label="code-block-17-3"></a><span class="co">#  short_free</span></span>
-<span id="cb17-4"><a href="#cb17-4" tabindex="-1" aria-label="code-block-17-4"></a><span class="co"># -N 1</span></span>
-<span id="cb17-5"><a href="#cb17-5" tabindex="-1" aria-label="code-block-17-5"></a><span class="co"># -n 8</span></span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1" aria-label="code-block-17-2"></a><span class="co">#SBATCH --job-name parallel-job</span></span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1" aria-label="code-block-17-3"></a><span class="co">#SBATCH  short_free</span></span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1" aria-label="code-block-17-4"></a><span class="co">#SBATCH -N 1</span></span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1" aria-label="code-block-17-5"></a><span class="co">#SBATCH -n 8</span></span>
 <span id="cb17-6"><a href="#cb17-6" tabindex="-1" aria-label="code-block-17-6"></a></span>
 <span id="cb17-7"><a href="#cb17-7" tabindex="-1" aria-label="code-block-17-7"></a><span class="co"># Load the computing environment we need</span></span>
 <span id="cb17-8"><a href="#cb17-8" tabindex="-1" aria-label="code-block-17-8"></a><span class="co"># (mpi4py and numpy are in SciPy-bundle)</span></span>
