@@ -101,12 +101,12 @@ Using `nano`, create a script called
 
 ```bash
 #!/bin/bash
- =comet_training
- =short_free
- =amdahl_defaults
- =1
- =1
- =00:05:00
+# =comet_training
+# =short_free
+# SBATCH=amdahl_defaults
+# =1
+# =1
+# =00:05:00
 
 echo "Run the Amdahl executable with default arguments."
 amdahl
@@ -139,7 +139,7 @@ variables.
 The relevant array directive has this format:
 
 ```bash
- =<array-spec>
+# =<array-spec>
 ```
 
 The `<array-spec>` above is a place-holder for specifying the
@@ -189,14 +189,14 @@ and to direct the output of each array element to a separate file.
 
 ```bash
 #!/bin/bash
- =comet_training
- =short_free
- =amdahl-array
- =1
- =1
- =1-4
- =00:05:00
- =amdahl-%A-%a
+# =comet_training
+# =short_free
+# SBATCH=amdahl-array
+# =1
+# =1
+# =1-4
+# =00:05:00
+# =amdahl-%A-%a
 
 # Run the Amdahl executable several times independently.
 

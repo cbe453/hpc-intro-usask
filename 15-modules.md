@@ -392,9 +392,9 @@ compute node).
 
 ```output
 #!/bin/bash
- 
+# 
 
-  00:00:30
+#  00:00:30
 
 module load 
 

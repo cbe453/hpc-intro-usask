@@ -163,12 +163,12 @@ scripts specifies what program should be used to run it (you'll typically see
 `#!/usr/bin/env bash`). Schedulers like Slurm also
 have a special comment used to denote special scheduler-specific options.
 Though these comments differ from scheduler to scheduler,
-Slurm's special comment is ``. Anything
-following the `` comment is interpreted as an
+Slurm's special comment is `#`. Anything
+following the `#` comment is interpreted as an
 instruction to the scheduler.
 
 Let's illustrate this by example. By default, a job's name is the name of the
-script, but the `` option can be used to change the
+script, but the `SBATCH` option can be used to change the
 name of a job. Add an option to the script:
 
 ```bash
@@ -177,7 +177,7 @@ name of a job. Add an option to the script:
 
 ```bash
 #!/bin/bash
-  hello-world
+# SBATCH hello-world
 
 echo -n "This script is running on "
 hostname
@@ -272,7 +272,7 @@ for it on the cluster.
 
 ```bash
 #!/bin/bash
-  00:01 # timeout in HH:MM
+#  00:01 # timeout in HH:MM
 
 echo -n "This script is running on "
 sleep 20 # time in seconds
@@ -301,8 +301,8 @@ wall time, and attempt to run a job for two minutes.
 
 ```bash
 #!/bin/bash
-  long_job
-  00:01 # timeout in HH:MM
+# SBATCH long_job
+#  00:01 # timeout in HH:MM
 
 echo "This script is running on ... "
 sleep 240 # time in seconds

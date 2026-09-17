@@ -140,7 +140,7 @@ The following line tells Slurm that our job should
 finish within 2 minutes:
 
 ```bash
-  00:02:00
+#  00:02:00
 ```
 
 :::::::::::::::::::::::::
