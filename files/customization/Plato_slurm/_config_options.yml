@@ -20,6 +20,7 @@ remote:
   user: "abc123"
   prompt: '[abc123@platolgn001 ~]'
   shebang: "#!/bin/bash"
+  home: "/home"
 
   fs:
     home: "/home"
