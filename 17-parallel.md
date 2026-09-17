@@ -37,7 +37,7 @@ Create a submission file, requesting one task on a single node, then launch it.
 
 ```bash
 #!/bin/bash
-# SBATCH solo-job
+# #SBATCH solo-job
 #  short_free
 # -N 1
 # -n 1
@@ -159,7 +159,7 @@ Let's modify the job script to request more cores and use the MPI run-time.
 
 ```bash
 #!/bin/bash
-# SBATCH parallel-job
+# #SBATCH parallel-job
 #  short_free
 # -N 1
 # -n 4
@@ -277,7 +277,7 @@ code gets.
 
 ```bash
 #!/bin/bash
-# SBATCH parallel-job
+# #SBATCH parallel-job
 #  short_free
 # -N 1
 # -n 8

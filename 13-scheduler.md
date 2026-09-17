@@ -168,7 +168,7 @@ following the `#` comment is interpreted as an
 instruction to the scheduler.
 
 Let's illustrate this by example. By default, a job's name is the name of the
-script, but the `SBATCH` option can be used to change the
+script, but the `#SBATCH` option can be used to change the
 name of a job. Add an option to the script:
 
 ```bash
@@ -177,7 +177,7 @@ name of a job. Add an option to the script:
 
 ```bash
 #!/bin/bash
-# SBATCH hello-world
+#SBATCH hello-world
 
 echo -n "This script is running on "
 hostname
@@ -301,7 +301,7 @@ wall time, and attempt to run a job for two minutes.
 
 ```bash
 #!/bin/bash
-# SBATCH long_job
+# #SBATCH long_job
 #  00:01 # timeout in HH:MM
 
 echo "This script is running on ... "

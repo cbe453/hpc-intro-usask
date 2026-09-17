@@ -103,7 +103,7 @@ Using `nano`, create a script called
 #!/bin/bash
 # =comet_training
 # =short_free
-# SBATCH=amdahl_defaults
+# #SBATCH=amdahl_defaults
 # =1
 # =1
 # =00:05:00
@@ -191,7 +191,7 @@ and to direct the output of each array element to a separate file.
 #!/bin/bash
 # =comet_training
 # =short_free
-# SBATCH=amdahl-array
+# #SBATCH=amdahl-array
 # =1
 # =1
 # =1-4
