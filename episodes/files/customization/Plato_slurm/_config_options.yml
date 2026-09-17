@@ -41,5 +41,21 @@ sched:
   project: "FIXME_comet_training"
   comment: '#SBATCH'
   flag:
-    name: "--job-name"
-    time: "--time"
+    user: "-u yourUsername"
+    interactive: ""
+    histdetail: "--long --jobs"
+    name:    "--job-name"
+    account: "--account"
+    array:   "--array"
+    time:    "--time"
+    queue:   "--partition"
+    nodes:   "--nodes"
+    tasks:   "--ntasks"
+    threads: "--cpus-per-task"
+    outputfile: "--output"
+
+  del: "scancel"  
+  interactive: "srun"
+  info: "sinfo"
+  hist: "sacct -u yourUsername"
+  hist_filter: ""
