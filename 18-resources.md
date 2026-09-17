@@ -130,7 +130,7 @@ get your job dispatched earlier.
 Edit `parallel_job.sh` to set a better time estimate. How close can
 you get?
 
-Hint: use ``.
+Hint: use `--time`.
 
 :::::::::::::::  solution
 
@@ -140,7 +140,7 @@ The following line tells Slurm that our job should
 finish within 2 minutes:
 
 ```bash
-#  00:02:00
+#SBATCH --time 00:02:00
 ```
 
 :::::::::::::::::::::::::

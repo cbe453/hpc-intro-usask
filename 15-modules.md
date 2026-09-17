@@ -392,9 +392,9 @@ compute node).
 
 ```output
 #!/bin/bash
-# 
+#SBATCH 
 
-#  00:00:30
+#SBATCH --time 00:00:30
 
 module load 
 

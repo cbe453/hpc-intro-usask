@@ -129,7 +129,7 @@ status, we check the queue using the command
 
 ```output
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-    9 cpubase_b example-   user01  R       0:05      1 node1
+    9 plato_sho example-   abc123  R       0:05      1 platocpu028
 ```
 
 We can see all the details of our job, most importantly that it is in the `R`
@@ -163,12 +163,12 @@ scripts specifies what program should be used to run it (you'll typically see
 `#!/usr/bin/env bash`). Schedulers like Slurm also
 have a special comment used to denote special scheduler-specific options.
 Though these comments differ from scheduler to scheduler,
-Slurm's special comment is `#`. Anything
-following the `#` comment is interpreted as an
+Slurm's special comment is `#SBATCH`. Anything
+following the `#SBATCH` comment is interpreted as an
 instruction to the scheduler.
 
 Let's illustrate this by example. By default, a job's name is the name of the
-script, but the `#SBATCH` option can be used to change the
+script, but the `--job-name` option can be used to change the
 name of a job. Add an option to the script:
 
 ```bash
@@ -177,7 +177,7 @@ name of a job. Add an option to the script:
 
 ```bash
 #!/bin/bash
-#SBATCH hello-world
+--job-name hello-world
 
 echo -n "This script is running on "
 hostname
@@ -192,7 +192,7 @@ Submit the job and monitor its status:
 
 ```output
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-   10 cpubase_b hello-wo   user01  R       0:02      1 node1
+   10 plato_sho hello-wo   abc123  R       0:02      1 platocpu028
 ```
 
 Fantastic, we've successfully changed the name of our job!
@@ -272,7 +272,7 @@ for it on the cluster.
 
 ```bash
 #!/bin/bash
-#  00:01 # timeout in HH:MM
+#SBATCH --time 00:01 # timeout in HH:MM
 
 echo -n "This script is running on "
 sleep 20 # time in seconds
@@ -301,8 +301,8 @@ wall time, and attempt to run a job for two minutes.
 
 ```bash
 #!/bin/bash
-# #SBATCH long_job
-#  00:01 # timeout in HH:MM
+#SBATCH --job-name long_job
+#SBATCH --time 00:01 # timeout in HH:MM
 
 echo "This script is running on ... "
 sleep 240 # time in seconds

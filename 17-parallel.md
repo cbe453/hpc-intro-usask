@@ -37,10 +37,10 @@ Create a submission file, requesting one task on a single node, then launch it.
 
 ```bash
 #!/bin/bash
-# #SBATCH solo-job
-#  short_free
-# -N 1
-# -n 1
+#SBATCH --job-name solo-job
+#SBATCH  short_free
+#SBATCH -N 1
+#SBATCH -n 1
 
 # Load the computing environment we need
 module load 
@@ -159,10 +159,10 @@ Let's modify the job script to request more cores and use the MPI run-time.
 
 ```bash
 #!/bin/bash
-# #SBATCH parallel-job
-#  short_free
-# -N 1
-# -n 4
+#SBATCH --job-name parallel-job
+#SBATCH  short_free
+#SBATCH -N 1
+#SBATCH -n 4
 
 # Load the computing environment we need
 # (mpi4py and numpy are in SciPy-bundle)
@@ -277,10 +277,10 @@ code gets.
 
 ```bash
 #!/bin/bash
-# #SBATCH parallel-job
-#  short_free
-# -N 1
-# -n 8
+#SBATCH --job-name parallel-job
+#SBATCH  short_free
+#SBATCH -N 1
+#SBATCH -n 8
 
 # Load the computing environment we need
 # (mpi4py and numpy are in SciPy-bundle)
