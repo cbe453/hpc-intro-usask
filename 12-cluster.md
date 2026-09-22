@@ -203,10 +203,27 @@ For example, we can view all of the worker nodes by running the command
 
 
 ```output
-PARTITION          AVAIL  TIMELIMIT  NODES  STATE NODELIST
-cpubase_bycore_b1*    up   infinite      4   idle node[1-2],smnode[1-2]
-node                  up   infinite      2   idle node[1-2]
-smnode                up   infinite      2   idle smnode[1-2]
+PARTITION               AVAIL  TIMELIMIT  NODES  STATE NODELIST
+...
+...
+...
+plato_edu                  up   12:00:00     19    mix platocpu[001-005,009,016,021,023,029-030,038-039,045-046,048,051,058,062]
+plato_edu                  up   12:00:00      5  alloc platocpu[033-037]
+plato_edu                  up   12:00:00     39   idle platocpu[006-008,010-015,017-020,022,024-028,031,040-044,047,049-050,052-057,059-061,063-064]
+plato_gpu                  up 7-00:00:00      4    mix platogpu[001-004]
+plato_gpu_edu              up   12:00:00      2    mix platogpu[001-002]
+plato_gpu_short            up   infinite      4    mix platogpu[001-004]
+plato_gpu_suresh           up 7-00:00:00      1   idle platogpu005
+plato_gpu_wu               up   infinite      1   idle platogpu006
+plato_long                 up 21-00:00:0     20    mix platocpu[001-005,009,016,021,023,029-030,038-039,045-046,048,051,058,062],platolms001
+plato_long                 up 21-00:00:0      5  alloc platocpu[033-037]
+plato_long                 up 21-00:00:0     39   idle platocpu[006-008,010-015,017-020,022,024-028,031,040-044,047,049-050,052-057,059-061,063-064]
+plato_medium               up 7-00:00:00     20    mix platocpu[001-005,009,016,021,023,029-030,038-039,045-046,048,051,058,062],platolms001
+plato_medium               up 7-00:00:00      5  alloc platocpu[033-037]
+plato_medium               up 7-00:00:00     39   idle platocpu[006-008,010-015,017-020,022,024-028,031,040-044,047,049-050,052-057,059-061,063-064]
+plato_short                up   12:00:00     20    mix platocpu[001-005,009,016,021,023,029-030,038-039,045-046,048,051,058,062],platolms001
+plato_short                up   12:00:00      5  alloc platocpu[033-037]
+plato_short                up   12:00:00     39   idle platocpu[006-008,010-015,017-020,022,024-028,031,040-044,047,049-050,052-057,059-061,063-064]
 ```
 
 There are also specialized machines used for managing disk storage, user
