@@ -26,7 +26,7 @@ remote:
     home: "/home"
 
   module_python3:
-    python: "N/A"
+    python: "python/3.11.5"
 
 sched:
   name: "Slurm"
@@ -55,6 +55,7 @@ sched:
     threads: "--cpus-per-task"
     outputfile: "--output"
 
+  status: "squeue"
   del: "scancel"  
   interactive: "srun"
   info: "sinfo"
