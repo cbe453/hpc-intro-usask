@@ -28,6 +28,9 @@ remote:
   module_python3:
     python: "python/3.11.5"
 
+  modules:
+    python: "python/3.11.5"
+
 sched:
   name: "Slurm"
   submit:

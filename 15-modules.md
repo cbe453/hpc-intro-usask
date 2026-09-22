@@ -175,7 +175,7 @@ We can load a different Python environment using `module load`:
 
 
 ```bash
-[abc123@platolgn001 ~] module load 
+[abc123@platolgn001 ~] module load python/3.11.5
 [abc123@platolgn001 ~] which python3
 ```
 
@@ -396,7 +396,7 @@ compute node).
 
 #SBATCH --time 00:00:30
 
-module load 
+module load python/3.11.5
 
 python3 --version
 ```
