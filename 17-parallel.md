@@ -160,7 +160,6 @@ Let's modify the job script to request more cores and use the MPI run-time.
 ```bash
 #!/bin/bash
 #SBATCH --job-name parallel-job
-#SBATCH --partition short_free
 #SBATCH -N 1
 #SBATCH -n 4
 
