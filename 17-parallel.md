@@ -57,7 +57,7 @@ As before, use the Slurm status commands to check whether your job
 is running and when it ends:
 
 ```bash
-[abc123@platolgn001 ~] squeue -u yourUsername
+[abc123@platolgn001 ~] squeue -u abc123
 ```
 
 Use `ls` to locate the output file. The `-t` flag sorts in

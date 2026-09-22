@@ -41,8 +41,9 @@ sched:
   account: "comet_training"
   project: "FIXME_comet_training"
   comment: '#SBATCH'
+  status: "squeue"
   flag:
-    user: "-u yourUsername"
+    user: "-u abc123"
     interactive: ""
     histdetail: "--long --jobs"
     name:    "--job-name"
@@ -54,8 +55,6 @@ sched:
     tasks:   "--ntasks"
     threads: "--cpus-per-task"
     outputfile: "--output"
-
-  status: "squeue"
   del: "scancel"  
   interactive: "srun"
   info: "sinfo"
