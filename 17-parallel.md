@@ -38,7 +38,6 @@ Create a submission file, requesting one task on a single node, then launch it.
 ```bash
 #!/bin/bash
 #SBATCH --job-name solo-job
-#SBATCH --partition short_free
 #SBATCH -N 1
 #SBATCH -n 1
 
@@ -277,7 +276,6 @@ code gets.
 ```bash
 #!/bin/bash
 #SBATCH --job-name parallel-job
-#SBATCH --partition short_free
 #SBATCH -N 1
 #SBATCH -n 8
 

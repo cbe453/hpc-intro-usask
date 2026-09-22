@@ -102,7 +102,6 @@ Using `nano`, create a script called
 ```bash
 #!/bin/bash
 #SBATCH --account=comet_training
-#SBATCH --partition=short_free
 #SBATCH --job-name=amdahl_defaults
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
@@ -190,7 +189,6 @@ and to direct the output of each array element to a separate file.
 ```bash
 #!/bin/bash
 #SBATCH --account=comet_training
-#SBATCH --partition=short_free
 #SBATCH --job-name=amdahl-array
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
