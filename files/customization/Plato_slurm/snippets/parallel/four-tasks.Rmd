@@ -14,7 +14,7 @@
 # Load the computing environment we need
 # (mpi4py and numpy are in SciPy-bundle)
 module load `r config$remote$modules$python`
-module load SciPy-bundle
+module load scipy-stack
 
 # Execute the task
 mpiexec amdahl
