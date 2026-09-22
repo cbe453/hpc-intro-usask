@@ -7,7 +7,6 @@
 ```bash
 `r config$remote$shebang`
 `r config$sched$comment` `r config$sched$flag$name` parallel-job
-`r config$sched$comment` `r config$sched$flag$queue` `r config$sched$queue$testing`
 `r config$sched$comment` -N 1
 `r config$sched$comment` -n 4
 
