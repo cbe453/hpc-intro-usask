@@ -121,10 +121,10 @@ And that's all we need to do to submit a job. Our work is done -- now the
 scheduler takes over and tries to run the job for us. While the job is waiting
 to run, it goes into a list of jobs called the *queue*. To check on our job's
 status, we check the queue using the command
-` -u yourUsername`.
+`squeue -u yourUsername`.
 
 ```bash
-[abc123@platolgn001 ~]  -u yourUsername
+[abc123@platolgn001 ~] squeue -u yourUsername
 ```
 
 ```output
@@ -141,7 +141,7 @@ or `RUNNING` state. Sometimes our jobs might need to wait in a queue
 ## Where's the Output?
 
 On the login node, this script printed output to the terminal -- but
-now, when `` shows the job has finished,
+now, when `squeue` shows the job has finished,
 nothing was printed to the terminal.
 
 Cluster job output is typically redirected to a file in the directory you
@@ -187,7 +187,7 @@ Submit the job and monitor its status:
 
 ```bash
 [abc123@platolgn001 ~] sbatch --account=hpc_s_workshop example-job.sh
-[abc123@platolgn001 ~]  -u yourUsername
+[abc123@platolgn001 ~] squeue -u yourUsername
 ```
 
 ```output
@@ -314,7 +314,7 @@ log file.
 
 ```bash
 [abc123@platolgn001 ~] sbatch --account=hpc_s_workshop example-job.sh
-[abc123@platolgn001 ~]  -u yourUsername
+[abc123@platolgn001 ~] squeue -u yourUsername
 ```
 
 ```bash
@@ -347,7 +347,7 @@ you to cancel it before it is killed!).
 
 ```bash
 [abc123@platolgn001 ~] sbatch --account=hpc_s_workshop example-job.sh
-[abc123@platolgn001 ~]  -u yourUsername
+[abc123@platolgn001 ~] squeue -u yourUsername
 ```
 
 ```output
@@ -364,7 +364,7 @@ successful.
 ```bash
 [abc123@platolgn001 ~] scancel 38759
 # It might take a minute for the job to disappear from the queue...
-[abc123@platolgn001 ~]  -u yourUsername
+[abc123@platolgn001 ~] squeue -u yourUsername
 ```
 
 ```output
