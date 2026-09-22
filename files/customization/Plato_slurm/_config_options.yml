@@ -61,5 +61,5 @@ sched:
   del: "scancel"  
   interactive: "srun"
   info: "sinfo"
-  hist: "sacct -u yourUsername"
+  hist: "sacct -u abc123"
   hist_filter: ""
