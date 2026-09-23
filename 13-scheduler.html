@@ -367,7 +367,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Scheduler Fundamentals</h1>
-        <p>Last updated on 2026-09-22 |
+        <p>Last updated on 2026-09-23 |
 
         <a href="https://github.com/carpentries-incubator/hpc-intro/edit/main/episodes/13-scheduler.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -737,7 +737,7 @@ check the log file.</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>This script is running on ...
-slurmstepd: error: *** JOB 12 ON node1 CANCELLED AT 2021-02-19T13:55:57
+slurmstepd: error: *** JOB 12 ON platocpu028 CANCELLED AT 2026-02-19T13:55:57
 DUE TO TIME LIMIT ***</code></pre>
 </div>
 <p>Our job was killed for exceeding the amount of resources it
@@ -769,7 +769,7 @@ it runs long enough for you to cancel it before it is killed!).</p>
 <pre class="output" tabindex="0"><code>Submitted batch job 13
 
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-   13 cpubase_b long_job   user01  R       0:02      1 node1</code></pre>
+   13 plato_sho long_job   abc123  R       0:02      1 platocpu028</code></pre>
 </div>
 <p>Now cancel the job with its job number (printed in your terminal). A
 clean return of your command prompt indicates that the request to cancel
@@ -985,8 +985,8 @@ users.</li>
   "url": "https://carpentries-incubator.github.io/hpc-intro/13-scheduler.html",
   "identifier": "https://carpentries-incubator.github.io/hpc-intro/13-scheduler.html",
   "dateCreated": "2017-03-24",
-  "dateModified": "2026-09-22",
-  "datePublished": "2026-09-22"
+  "dateModified": "2026-09-23",
+  "datePublished": "2026-09-23"
 }
 
   </script><script>
