@@ -323,7 +323,7 @@ log file.
 
 ```output
 This script is running on ...
-slurmstepd: error: *** JOB 12 ON node1 CANCELLED AT 2021-02-19T13:55:57
+slurmstepd: error: *** JOB 12 ON platocpu028 CANCELLED AT 2026-02-19T13:55:57
 DUE TO TIME LIMIT ***
 ```
 
@@ -354,7 +354,7 @@ you to cancel it before it is killed!).
 Submitted batch job 13
 
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-   13 cpubase_b long_job   user01  R       0:02      1 node1
+   13 plato_sho long_job   abc123  R       0:02      1 platocpu028
 ```
 
 Now cancel the job with its job number (printed in your terminal). A clean
