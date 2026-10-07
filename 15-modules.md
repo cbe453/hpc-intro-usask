@@ -113,7 +113,21 @@ message telling you so.
 ```
 
 ```output
-No modules loaded
+Currently Loaded Modules:
+  1) CCconfig               8) pmix/4.2.4
+  2) gentoo/2023      (S)   9) ucc/1.2.0
+  3) gcccore/.12.3    (H)  10) openmpi/4.1.5   (m)
+  4) gcc/12.3         (t)  11) flexiblas/3.3.1
+  5) hwloc/2.9.1           12) imkl/2023.2.0   (math)
+  6) ucx/1.14.1            13) StdEnv/2023     (S)
+  7) libfabric/1.18.0      14) mii/1.1.2
+
+  Where:
+   S:     Module is Sticky, requires --force to unload or purge
+   m:     MPI implementations / Implémentations MPI
+   math:  Mathematical libraries / Bibliothèques mathématiques
+   t:     Tools for development / Outils de développement
+   H:                Hidden Module
 ```
 
 ## Loading and Unloading Software
