@@ -97,7 +97,7 @@ Let's try this instead:
 ```
 
 ```output
-/abc123
+/home/abc123
 ```
 
 The dollar sign tells the shell that we want the *value* of the variable
