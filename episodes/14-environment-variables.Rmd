@@ -97,7 +97,7 @@ Let's try this instead:
 ```
 
 ```output
-`r config$remote$home`/`r config$remote$user`
+`r config$fs$home`/`r config$remote$user`
 ```
 
 The dollar sign tells the shell that we want the *value* of the variable
