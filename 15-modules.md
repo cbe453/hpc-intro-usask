@@ -80,37 +80,27 @@ To see available software modules, use `module avail`:
 ```
 
 ```output
-------------------------------------------------- Cluster specific modules --------------------------------------------------
+------------------------------ Cluster specific modules -------------------------------
    singularity/3.9.2
 
------------------------------------------- Cluster specific MPI-dependent modules -------------------------------------------
+----------------------- Cluster specific MPI-dependent modules ------------------------
    castep/24.1    geo-stack/2023a
 
------------------------------------------------- MPI-dependent avx2 modules -------------------------------------------------
-   abinit/10.4.7                (chem)      kahip/3.16                 (D)         parmetis/4.0.3         (math)
-   abyss/2.3.7                  (bio)       lammps-omp/20250722        (chem)      pcl/1.14.1             (math)
-   adol-c/2.7.2                             libmesh/1.7.5              (math)      petsc-64bits/3.21.6    (t)
-   amber/22.5-23.5              (chem)      librmn/20.0.9                          petsc-64bits/3.23.4    (t)
-   ambertools/23.5              (chem)      mafft-mpi/7.526                        petsc-64bits/3.25.1    (t,D)
-   ambertools/25.0              (chem,D)    mdi/1.4.30                             petsc-complex/3.20.0   (t)
-   arpack-ng/3.9.1              (math,D)    meep/1.29.0                (phys)      petsc-complex/3.25.1   (t,D)
-   aspect/3.0.0                             meme/5.5.7                             petsc/3.20.0           (t)
-   boost-mpi/1.82.0             (t)         mmg/5.7.3                              petsc/3.21.6           (t)
-   casacore/3.6.1                           modflow/6.5.0                          petsc/3.23.4           (t)
-   cdo/2.2.2                    (geo)       mpas/8.3.1                             petsc/3.25.1           (t,D)
-   ceres-solver/2.2.0                       mpb-mpi/1.11.1                         pflotran/5.0.0
+----------------------------- MPI-dependent avx2 modules ------------------------------
+   abinit/10.4.7                (chem)      netcdf-mpi/4.9.2           (io)
+   abyss/2.3.7                  (bio)       netcdf-mpi/4.9.3           (io,D)
+   adol-c/2.7.2                             octave/7.2.0               (t)
+   amber/22.5-23.5              (chem)      octopus/16.2               (chem)
+   ambertools/23.5              (chem)      openfoam/v2306             (phys)
+   ambertools/25.0              (chem,D)    openfoam/v2312             (phys)
+   arpack-ng/3.9.1              (math,D)    openfoam/v2406             (phys)
+   aspect/3.0.0                             openfoam/v2412             (phys)
+   boost-mpi/1.82.0             (t)         openfoam/11                (phys)
+   casacore/3.6.1                           openfoam/12                (phys)
+   cdo/2.2.2                    (geo)       openfoam/13                (phys,D)
+   ceres-solver/2.2.0                       openmc/0.15.0
 
 [output removed for brevity]
-
-  Where:
-   L:        Module is loaded
-   D:        Default Module
-   Aliases exist: foo/1.2.3 (1.2) means that
-             "module load foo/1.2" will load foo/1.2.3
-
-Use "module spider" to find all possible modules and extensions.
-Use "module keyword key1 key2 ..." to search for all possible modules matching
-any of the "keys".
 ```
 
 Note that piping the output through `less` allows us to search within the output using the <kbd>/</kbd> key.
@@ -369,37 +359,27 @@ there may be reams of output:
 ```
 
 ```output
-------------------------------------------------- Cluster specific modules --------------------------------------------------
+------------------------------ Cluster specific modules -------------------------------
    singularity/3.9.2
 
------------------------------------------- Cluster specific MPI-dependent modules -------------------------------------------
+----------------------- Cluster specific MPI-dependent modules ------------------------
    castep/24.1    geo-stack/2023a
 
------------------------------------------------- MPI-dependent avx2 modules -------------------------------------------------
-   abinit/10.4.7                (chem)      kahip/3.16                 (D)         parmetis/4.0.3         (math)
-   abyss/2.3.7                  (bio)       lammps-omp/20250722        (chem)      pcl/1.14.1             (math)
-   adol-c/2.7.2                             libmesh/1.7.5              (math)      petsc-64bits/3.21.6    (t)
-   amber/22.5-23.5              (chem)      librmn/20.0.9                          petsc-64bits/3.23.4    (t)
-   ambertools/23.5              (chem)      mafft-mpi/7.526                        petsc-64bits/3.25.1    (t,D)
-   ambertools/25.0              (chem,D)    mdi/1.4.30                             petsc-complex/3.20.0   (t)
-   arpack-ng/3.9.1              (math,D)    meep/1.29.0                (phys)      petsc-complex/3.25.1   (t,D)
-   aspect/3.0.0                             meme/5.5.7                             petsc/3.20.0           (t)
-   boost-mpi/1.82.0             (t)         mmg/5.7.3                              petsc/3.21.6           (t)
-   casacore/3.6.1                           modflow/6.5.0                          petsc/3.23.4           (t)
-   cdo/2.2.2                    (geo)       mpas/8.3.1                             petsc/3.25.1           (t,D)
-   ceres-solver/2.2.0                       mpb-mpi/1.11.1                         pflotran/5.0.0
+----------------------------- MPI-dependent avx2 modules ------------------------------
+   abinit/10.4.7                (chem)      netcdf-mpi/4.9.2           (io)
+   abyss/2.3.7                  (bio)       netcdf-mpi/4.9.3           (io,D)
+   adol-c/2.7.2                             octave/7.2.0               (t)
+   amber/22.5-23.5              (chem)      octopus/16.2               (chem)
+   ambertools/23.5              (chem)      openfoam/v2306             (phys)
+   ambertools/25.0              (chem,D)    openfoam/v2312             (phys)
+   arpack-ng/3.9.1              (math,D)    openfoam/v2406             (phys)
+   aspect/3.0.0                             openfoam/v2412             (phys)
+   boost-mpi/1.82.0             (t)         openfoam/11                (phys)
+   casacore/3.6.1                           openfoam/12                (phys)
+   cdo/2.2.2                    (geo)       openfoam/13                (phys,D)
+   ceres-solver/2.2.0                       openmc/0.15.0
 
 [output removed for brevity]
-
-  Where:
-   L:        Module is loaded
-   D:        Default Module
-   Aliases exist: foo/1.2.3 (1.2) means that
-             "module load foo/1.2" will load foo/1.2.3
-
-Use "module spider" to find all possible modules and extensions.
-Use "module keyword key1 key2 ..." to search for all possible modules matching
-any of the "keys".
 ```
 
 If the software your Slurm script runs requires on a specific version
