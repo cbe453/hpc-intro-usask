@@ -43,6 +43,7 @@ Create a submission file, requesting one task on a single node, then launch it.
 
 # Load the computing environment we need
 module load python/3.11.5
+module load mpi4py
 
 # Execute the task
 amdahl

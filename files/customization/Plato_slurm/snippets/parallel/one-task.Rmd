@@ -11,6 +11,7 @@
 
 # Load the computing environment we need
 module load `r config$remote$modules$python`
+module load mpi4py
 
 # Execute the task
 amdahl

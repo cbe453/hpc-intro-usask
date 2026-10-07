@@ -280,8 +280,7 @@ Currently Loaded Modules:
 ```
 
 So in this case, loading the `GROMACS` module (a bioinformatics software
-package), also loaded `GMP/6.2.0-GCCcore-x.y.z` and
-`SciPy-bundle/2020.03-foss-2020a-Python-3.x.y` as well. Let's try unloading the
+package), also loaded `fftw/3.3.10` and some others. Let's try unloading the
 `GROMACS` package.
 
 ```bash
