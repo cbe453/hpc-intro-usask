@@ -1,5 +1,5 @@
 ```bash
-`r config$remote$prompt` ls /cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/amd/zen2/software/Python/3.x.y-GCCcore-x.y.z/bin
+`r config$remote$prompt` ls /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/python/3.11.5/bin/
 ```
 
 ```output

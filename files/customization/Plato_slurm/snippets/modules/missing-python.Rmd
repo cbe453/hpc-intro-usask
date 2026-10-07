@@ -2,7 +2,7 @@ If the `python3` command is available, `which` shows the path to the
 executable:
 
 ```output
-/usr/bin/python3
+/cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/bin/python3
 ```
 
 The shell finds executables by searching through the directories listed in
