@@ -148,7 +148,7 @@ If the `python3` command is available, `which` shows the path to the
 executable:
 
 ```output
-/usr/bin/python3
+/cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/bin/python3
 ```
 
 The shell finds executables by searching through the directories listed in
@@ -194,7 +194,7 @@ We can load a different Python environment using `module load`:
 ```
 
 ```output
-/cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/amd/zen2/software/Python/3.x.y-GCCcore-x.y.z/bin/python3
+/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/python/3.11.5/bin/python3
 ```
 
 So, what just happened?
@@ -211,7 +211,7 @@ variables, we can print it out using `echo`.
 ```
 
 ```output
-/cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/amd/zen2/software/Python/3.x.y-GCCcore-x.y.z/bin:/cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/amd/zen2/software/SQLite/3.31.1-GCCcore-x.y.z/bin:/cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/amd/zen2/software/Tcl/8.6.10-GCCcore-x.y.z/bin:/cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/amd/zen2/software/GCCcore/x.y.z/bin:/cvmfs/pilot.eessi-hpc.org/2020.12/compat/linux/x86_64/usr/bin:/opt/software/slurm/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin:/home/user01/.local/bin:/home/user01/bin
+/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/python/3.11.5/bin:/opt/conda/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/mii/1.1.2/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/flexiblascore/3.3.1/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcc12/openmpi/4.1.5/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/ucc/1.2.0/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/pmix/4.2.4/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/libfabric/1.18.0/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/ucx/1.14.1/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/hwloc/2.9.1/sbin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/hwloc/2.9.1/bin:/cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/x86_64-pc-linux-gnu/gcc-bin/12:/cvmfs/soft.computecanada.ca/easybuild/bin:/cvmfs/soft.computecanada.ca/custom/bin:/cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/bin:/cvmfs/soft.computecanada.ca/custom/bin/computecanada:/opt/software/bin:/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/cbe453/.local/bin:/home/cbe453/bin
 ```
 
 You'll notice a similarity to the output of the `which` command. In this case,
@@ -223,7 +223,7 @@ executable before the system version. Let's examine what's located there:
 
 
 ```bash
-[abc123@platolgn001 ~] ls /cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/amd/zen2/software/Python/3.x.y-GCCcore-x.y.z/bin
+[abc123@platolgn001 ~] ls /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/python/3.11.5/bin/
 ```
 
 ```output
@@ -249,9 +249,13 @@ software modules.
 
 ```output
 Currently Loaded Modules:
-  1) GCCcore/x.y.z                 4) GMP/6.2.0-GCCcore-x.y.z
-  2) Tcl/8.6.10-GCCcore-x.y.z      5) libffi/3.3-GCCcore-x.y.z
-  3) SQLite/3.31.1-GCCcore-x.y.z   6) Python/3.x.y-GCCcore-x.y.z
+  1) CCconfig               8) pmix/4.2.4
+  2) gentoo/2023      (S)   9) ucc/1.2.0
+  3) gcccore/.12.3    (H)  10) openmpi/4.1.5   (m)
+  4) gcc/12.3         (t)  11) flexiblas/3.3.1
+  5) hwloc/2.9.1           12) imkl/2023.2.0   (math)
+  6) ucx/1.14.1            13) StdEnv/2023     (S)
+  7) libfabric/1.18.0      14) python/3.11.5   (t)
 ```
 
 ```bash
@@ -261,19 +265,15 @@ Currently Loaded Modules:
 
 ```output
 Currently Loaded Modules:
-  1) GCCcore/x.y.z                    14) libfabric/1.11.0-GCCcore-x.y.z
-  2) Tcl/8.6.10-GCCcore-x.y.z         15) PMIx/3.1.5-GCCcore-x.y.z
-  3) SQLite/3.31.1-GCCcore-x.y.z      16) OpenMPI/4.0.3-GCC-x.y.z
-  4) GMP/6.2.0-GCCcore-x.y.z          17) OpenBLAS/0.3.9-GCC-x.y.z
-  5) libffi/3.3-GCCcore-x.y.z         18) gompi/2020a
-  6) Python/3.x.y-GCCcore-x.y.z       19) FFTW/3.3.8-gompi-2020a
-  7) GCC/x.y.z                        20) ScaLAPACK/2.1.0-gompi-2020a
-  8) numactl/2.0.13-GCCcore-x.y.z     21) foss/2020a
-  9) libxml2/2.9.10-GCCcore-x.y.z     22) pybind11/2.4.3-GCCcore-x.y.z-Pytho...
- 10) libpciaccess/0.16-GCCcore-x.y.z  23) SciPy-bundle/2020.03-foss-2020a-Py...
- 11) hwloc/2.2.0-GCCcore-x.y.z        24) networkx/2.4-foss-2020a-Python-3.8...
- 12) libevent/2.1.11-GCCcore-x.y.z    25) GROMACS/2020.1-foss-2020a-Python-3...
- 13) UCX/1.8.0-GCCcore-x.y.z
+  1) CCconfig              10) openmpi/4.1.5   (m)
+  2) gentoo/2023      (S)  11) flexiblas/3.3.1
+  3) gcccore/.12.3    (H)  12) imkl/2023.2.0   (math)
+  4) gcc/12.3         (t)  13) StdEnv/2023     (S)
+  5) hwloc/2.9.1           14) mii/1.1.2
+  6) ucx/1.14.1            15) python/3.11.5   (t)
+  7) libfabric/1.18.0      16) fftw/3.3.10     (math)
+  8) pmix/4.2.4            17) gromacs/2026.1  (chem)
+  9) ucc/1.2.0
 ```
 
 So in this case, loading the `GROMACS` module (a bioinformatics software
@@ -288,18 +288,13 @@ package), also loaded `GMP/6.2.0-GCCcore-x.y.z` and
 
 ```output
 Currently Loaded Modules:
-  1) GCCcore/x.y.z                    13) UCX/1.8.0-GCCcore-x.y.z
-  2) Tcl/8.6.10-GCCcore-x.y.z         14) libfabric/1.11.0-GCCcore-x.y.z
-  3) SQLite/3.31.1-GCCcore-x.y.z      15) PMIx/3.1.5-GCCcore-x.y.z
-  4) GMP/6.2.0-GCCcore-x.y.z          16) OpenMPI/4.0.3-GCC-x.y.z
-  5) libffi/3.3-GCCcore-x.y.z         17) OpenBLAS/0.3.9-GCC-x.y.z
-  6) Python/3.x.y-GCCcore-x.y.z       18) gompi/2020a
-  7) GCC/x.y.z                        19) FFTW/3.3.8-gompi-2020a
-  8) numactl/2.0.13-GCCcore-x.y.z     20) ScaLAPACK/2.1.0-gompi-2020a
-  9) libxml2/2.9.10-GCCcore-x.y.z     21) foss/2020a
- 10) libpciaccess/0.16-GCCcore-x.y.z  22) pybind11/2.4.3-GCCcore-x.y.z-Pytho...
- 11) hwloc/2.2.0-GCCcore-x.y.z        23) SciPy-bundle/2020.03-foss-2020a-Py...
- 12) libevent/2.1.11-GCCcore-x.y.z    24) networkx/2.4-foss-2020a-Python-3.x.y
+  1) CCconfig               8) pmix/4.2.4
+  2) gentoo/2023      (S)   9) ucc/1.2.0
+  3) gcccore/.12.3    (H)  10) openmpi/4.1.5   (m)
+  4) gcc/12.3         (t)  11) flexiblas/3.3.1
+  5) hwloc/2.9.1           12) imkl/2023.2.0   (math)
+  6) ucx/1.14.1            13) StdEnv/2023     (S)
+  7) libfabric/1.18.0      14) python/3.11.5   (t)
 ```
 
 So using `module unload` "un-loads" a module, and depending on how a site is
