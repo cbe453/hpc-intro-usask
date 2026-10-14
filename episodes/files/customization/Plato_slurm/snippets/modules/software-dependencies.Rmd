@@ -34,7 +34,7 @@ Currently Loaded Modules:
   9) ucc/1.2.0
 ```
 
-So in this case, loading the `GROMACS` module (a bioinformatics software
+So in this case, loading the `GROMACS` module (a molecular dynamics
 package), also loaded `fftw/3.3.10` and some others. Let's try unloading the
 `GROMACS` package.
 
