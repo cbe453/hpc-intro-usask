@@ -10,9 +10,8 @@
 `r config$sched$comment` -n 8
 
 # Load the computing environment we need
-# (mpi4py and numpy are in SciPy-bundle)
 module load `r config$remote$modules$python`
-module load SciPy-bundle
+module load mpi4py scipy-stack
 
 # Execute the task
 mpiexec amdahl
