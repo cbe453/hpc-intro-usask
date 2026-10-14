@@ -43,7 +43,7 @@ Create a submission file, requesting one task on a single node, then launch it.
 
 # Load the computing environment we need
 module load python/3.11.5
-module load mpi4py
+module load mpi4py scipy-stack
 
 # Execute the task
 amdahl
@@ -164,9 +164,8 @@ Let's modify the job script to request more cores and use the MPI run-time.
 #SBATCH -n 4
 
 # Load the computing environment we need
-# (mpi4py and numpy are in SciPy-bundle)
 module load python/3.11.5
-module load scipy-stack
+module load mpi4py scipy-stack
 
 # Execute the task
 mpiexec amdahl
@@ -281,9 +280,8 @@ code gets.
 #SBATCH -n 8
 
 # Load the computing environment we need
-# (mpi4py and numpy are in SciPy-bundle)
 module load python/3.11.5
-module load SciPy-bundle
+module load mpi4py scipy-stack
 
 # Execute the task
 mpiexec amdahl
