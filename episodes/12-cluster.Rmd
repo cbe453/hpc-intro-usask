@@ -225,6 +225,8 @@ connect to a shared, remote fileserver or cluster of servers.
 
 ![Node anatomy](fig/node_anatomy.png){max-width="20%" alt="Node anatomy" caption=""}
 
+::: challenge
+
 ## Explore the login node
 
 Now compare the resources of your computer with those of the head node.
@@ -263,7 +265,6 @@ on the same login node (or compute node, later on). Networked filesystems
 :::
 
 ::: callout
-
 ## Shared Filesystems
 
 This is an important point to remember: files saved on one node
