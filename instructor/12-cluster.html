@@ -389,7 +389,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Working on a remote HPC system</h1>
-        <p>Last updated on 2026-11-10 |
+        <p>Last updated on 2026-11-16 |
 
         <a href="https://github.com/carpentries-incubator/hpc-intro/edit/main/episodes/12-cluster.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -666,63 +666,7 @@ been restarted. While this storage can be local (a hard drive installed
 inside of it), it is more common for nodes to connect to a shared,
 remote fileserver or cluster of servers.</p>
 <figure><img src="../fig/node_anatomy.png" max-width="20%" caption="" alt="Node anatomy" class="figure mx-auto d-block"><div class="figcaption">Node anatomy</div>
-</figure><div id="explore-your-computer" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="explore-your-computer" class="callout-inner">
-<h3 class="callout-title">Explore Your Computer</h3>
-<div class="callout-content">
-<p>Try to find out the number of CPUs and amount of memory available on
-your personal computer. Note that, if you’re logged in to the remote
-computer cluster, you need to log out first. To do so, type
-<code>Ctrl+d</code> or <code>exit</code>:</p>
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1" aria-label="code-block-8-1"></a><span class="ex">[abc123@platolgn001</span> ~] exit</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1" aria-label="code-block-8-2"></a><span class="ex">[you@laptop:~]$</span></span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
-<div class="accordion-body">
-<p>There are several ways to do this. Most operating systems have a
-graphical system monitor, like the Windows Task Manager. More detailed
-information can sometimes be found on the command line. For example,
-some of the commands used on a Linux system are:</p>
-<p>Run system utilities</p>
-<div class="codewrapper sourceCode" id="cb9">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a><span class="ex">[you@laptop:~]$</span> nproc <span class="at">--all</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1" aria-label="code-block-9-2"></a><span class="ex">[you@laptop:~]$</span> free <span class="at">-m</span></span></code></pre>
-</div>
-<p>Read from <code>/proc</code></p>
-<div class="codewrapper sourceCode" id="cb10">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a><span class="ex">[you@laptop:~]$</span> cat /proc/cpuinfo</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1" aria-label="code-block-10-2"></a><span class="ex">[you@laptop:~]$</span> cat /proc/meminfo</span></code></pre>
-</div>
-<p>Use a system monitor</p>
-<div class="codewrapper sourceCode" id="cb11">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1" aria-label="code-block-11-1"></a><span class="ex">[you@laptop:~]$</span> htop</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="explore-the-login-node" class="callout challenge">
+</figure><div id="explore-the-login-node" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -735,37 +679,37 @@ node.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1" aria-label="code-block-12-1"></a><span class="ex">[you@laptop:~]$</span> ssh abc123@plato.usask.ca</span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1" aria-label="code-block-12-2"></a><span class="ex">[abc123@platolgn001</span> ~] nproc <span class="at">--all</span></span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1" aria-label="code-block-12-3"></a><span class="ex">[abc123@platolgn001</span> ~] free <span class="at">-m</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1" aria-label="code-block-8-1"></a><span class="ex">[you@laptop:~]$</span> ssh abc123@plato.usask.ca</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1" aria-label="code-block-8-2"></a><span class="ex">[abc123@platolgn001</span> ~] nproc <span class="at">--all</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1" aria-label="code-block-8-3"></a><span class="ex">[abc123@platolgn001</span> ~] free <span class="at">-m</span></span></code></pre>
 </div>
 <p>You can get more information about the processors using
 <code>lscpu</code>, and a lot of detail about the memory by reading the
 file <code>/proc/meminfo</code>:</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1" aria-label="code-block-13-1"></a><span class="ex">[abc123@platolgn001</span> ~] less /proc/meminfo</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a><span class="ex">[abc123@platolgn001</span> ~] less /proc/meminfo</span></code></pre>
 </div>
 <p>You can also explore the available filesystems using <code>df</code>
 to show <strong>d</strong>isk <strong>f</strong>ree space. The
 <code>-h</code> flag renders the sizes in a human-friendly format, i.e.,
 GB instead of B. The <strong>t</strong>ype flag <code>-T</code> shows
 what kind of filesystem each resource is.</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a><span class="ex">[abc123@platolgn001</span> ~] df <span class="at">-Th</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a><span class="ex">[abc123@platolgn001</span> ~] df <span class="at">-Th</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -809,10 +753,10 @@ include <code>/usr</code>, depending on how it is <a href="https://en.wikipedia.
 <p>Finally, let’s look at the resources available on the worker nodes
 where your jobs will actually run. Try running this command to see the
 name, CPUs and memory available on one of the worker nodes:</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1" aria-label="code-block-15-1"></a><span class="ex">[abc123@platolgn001</span> ~] sinfo <span class="at">-o</span> <span class="st">"%n %c %m"</span> <span class="kw">|</span> <span class="ex">column</span> <span class="at">-t</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1" aria-label="code-block-11-1"></a><span class="ex">[abc123@platolgn001</span> ~] sinfo <span class="at">-o</span> <span class="st">"%n %c %m"</span> <span class="kw">|</span> <span class="ex">column</span> <span class="at">-t</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -929,8 +873,8 @@ a shared filesystem.</li>
   "url": "https://carpentries-incubator.github.io/hpc-intro/instructor/12-cluster.html",
   "identifier": "https://carpentries-incubator.github.io/hpc-intro/instructor/12-cluster.html",
   "dateCreated": "2017-03-24",
-  "dateModified": "2026-11-10",
-  "datePublished": "2026-11-10"
+  "dateModified": "2026-11-16",
+  "datePublished": "2026-11-16"
 }
 
   </script><script>
