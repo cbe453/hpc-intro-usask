@@ -225,52 +225,6 @@ connect to a shared, remote fileserver or cluster of servers.
 
 ![Node anatomy](fig/node_anatomy.png){max-width="20%" alt="Node anatomy" caption=""}
 
-::: challenge
-
-## Explore Your Computer
-
-Try to find out the number of CPUs and amount of memory available on your
-personal computer.
-Note that, if you're logged in to the remote computer cluster, you need to
-log out first. To do so, type `Ctrl+d` or `exit`:
-
-```bash
-`r config$remote$prompt` exit
-`r config$local$prompt`
-```
-
-:::: solution
-
-There are several ways to do this. Most operating systems have a graphical
-system monitor, like the Windows Task Manager. More detailed information can
-sometimes be found on the command line. For example, some of the commands used
-on a Linux system are:
-
-Run system utilities
-
-```bash
-`r config$local$prompt` nproc --all
-`r config$local$prompt` free -m
-```
-
-Read from `/proc`
-
-```bash
-`r config$local$prompt` cat /proc/cpuinfo
-`r config$local$prompt` cat /proc/meminfo
-```
-
-Use a system monitor
-
-```bash
-`r config$local$prompt` htop
-```
-
-::::
-:::
-
-::: challenge
-
 ## Explore the login node
 
 Now compare the resources of your computer with those of the head node.
@@ -309,6 +263,7 @@ on the same login node (or compute node, later on). Networked filesystems
 :::
 
 ::: callout
+
 ## Shared Filesystems
 
 This is an important point to remember: files saved on one node
