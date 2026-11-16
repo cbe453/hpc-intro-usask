@@ -248,50 +248,6 @@ connect to a shared, remote fileserver or cluster of servers.
 
 ::: challenge
 
-## Explore Your Computer
-
-Try to find out the number of CPUs and amount of memory available on your
-personal computer.
-Note that, if you're logged in to the remote computer cluster, you need to
-log out first. To do so, type `Ctrl+d` or `exit`:
-
-```bash
-[abc123@platolgn001 ~] exit
-[you@laptop:~]$
-```
-
-:::: solution
-
-There are several ways to do this. Most operating systems have a graphical
-system monitor, like the Windows Task Manager. More detailed information can
-sometimes be found on the command line. For example, some of the commands used
-on a Linux system are:
-
-Run system utilities
-
-```bash
-[you@laptop:~]$ nproc --all
-[you@laptop:~]$ free -m
-```
-
-Read from `/proc`
-
-```bash
-[you@laptop:~]$ cat /proc/cpuinfo
-[you@laptop:~]$ cat /proc/meminfo
-```
-
-Use a system monitor
-
-```bash
-[you@laptop:~]$ htop
-```
-
-::::
-:::
-
-::: challenge
-
 ## Explore the login node
 
 Now compare the resources of your computer with those of the head node.
