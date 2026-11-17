@@ -493,42 +493,6 @@ load the appropriate one, and try the command again.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-### MPI for Python
-
-The Amdahl code has one dependency: **mpi4py**.
-If it hasn't already been installed on the cluster, `pip` will attempt to
-collect mpi4py from the Internet and install it for you.
-If this fails due to a one-way firewall, you must retrieve mpi4py on your
-local machine and upload it, just as we did for Amdahl.
-
-::::::::::::::::::::::::::::::::::::::  discussion
-
-## Retrieve and Upload `mpi4py`
-
-If installing Amdahl failed because mpi4py could not be installed,
-retrieve the tarball from <https://github.com/mpi4py/mpi4py/tarball/master>
-then `rsync` it to the cluster, extract, and install:
-
-```bash
-`r config$local$prompt` wget -O mpi4py.tar.gz https://github.com/mpi4py/mpi4py/tarball/master
-`r config$local$prompt` scp mpi4py.tar.gz `r config$remote$user`@`r config$remote$login`:
-# or
-`r config$local$prompt` rsync -avP mpi4py.tar.gz `r config$remote$user`@`r config$remote$login`:
-```
-
-```bash
-`r config$local$prompt` ssh `r config$remote$user`@`r config$remote$login`
-`r config$remote$prompt` tar -xvzf mpi4py.tar.gz  # extract the archive
-`r config$remote$prompt` mv mpi4py* mpi4py        # rename the directory
-`r config$remote$prompt` cd mpi4py
-`r config$remote$prompt` python3 -m pip install --user .
-`r config$remote$prompt` cd ../amdahl
-`r config$remote$prompt` python3 -m pip install --user .
-```
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
 ::::::::::::::::::::::::::::::::::::::  discussion
 
 ## If `pip` Raises a Warning...
