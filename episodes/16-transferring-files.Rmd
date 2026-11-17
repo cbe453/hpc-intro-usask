@@ -493,46 +493,6 @@ load the appropriate one, and try the command again.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::  discussion
-
-## If `pip` Raises a Warning...
-
-`pip` may warn that your user package binaries are not in your PATH.
-
-```warning
-WARNING: The script amdahl is installed in "${HOME}/.local/bin" which is
-not on PATH. Consider adding this directory to PATH or, if you prefer to
-suppress this warning, use --no-warn-script-location.
-```
-
-To check whether this warning is a problem, use `which` to search for the
-`amdahl` program:
-
-```bash
-`r config$remote$prompt` which amdahl
-```
-
-If the command returns no output, displaying a new prompt, it means the file
-`amdahl` has not been found. You must update the environment variable named
-`PATH` to include the missing folder.
-Edit your shell configuration file as follows, then log off the cluster and
-back on again so it takes effect.
-
-```bash
-`r config$remote$prompt` nano ~/.bashrc
-`r config$remote$prompt` tail ~/.bashrc
-```
-
-```output
-export PATH=${PATH}:${HOME}/.local/bin
-```
-
-After logging back in to `r config$remote$login`, `which` should be able to
-find `amdahl` without difficulties.
-If you had to load a Python module, load it again.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 ## Help!
 
