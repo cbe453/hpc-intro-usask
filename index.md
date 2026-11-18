@@ -36,15 +36,3 @@ To get started, please follow the [Setup Instructions](learners/setup.md)
 to ensure you have a terminal and SSH application.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Note that this is the draft HPC Carpentry release. Comments and feedback are
-welcome.
-
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## For Instructors
-
-If you are teaching this lesson in a workshop, please see the
-[Instructor notes](instructors/instructor-notes.md).
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
